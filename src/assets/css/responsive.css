@@ -1,0 +1,207 @@
+@media screen and (max-width:767px){
+    .main-timeline:before{ display: none; }
+    .main-timeline .timeline{ width: 100%; } 
+}
+@media screen and (max-width:576px){
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(even) .timeline-content{
+        padding: 145px 20px 20px;
+        border-radius: 50px;
+    }
+    .main-timeline .timeline-content:before,
+    .main-timeline .timeline:nth-child(even) .timeline-content:before{
+        top: 125px;
+        right: 0;
+        left: 0;
+        border-radius: inherit;
+    }
+    .main-timeline .timeline-icon,
+    .main-timeline .timeline:nth-child(even) .timeline-icon{
+        transform: translateY(0) translateX(-50%);
+        left: 50%;
+        top: 10px;
+        right: auto;
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+   .imgbanner h1 {
+     font-size: 20px;
+    letter-spacing: 3px;
+    text-shadow: 0px -1px 0px #f5a418;
+   }
+ 
+    .page-header {
+        padding:50px 0;
+    }
+
+    .page-header h1 {
+      font-size: 35px;
+    }
+
+    .ms_banner_video video {
+        height:auto;
+    }
+
+    .bi-arrow-right::before {
+        contenT:"" !important;
+    }
+
+    .icnmnbx {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .mbbtn .ms_btn {
+        margin-right: 0;
+    }
+
+    .ms_genres_box  {
+        margin-bottom: 30px !important;
+    }
+
+    .testibx {
+        margin:0 0 30px 0;
+    }
+
+    .ms_profile_box {
+        width:100%;
+        margin-bottom:30px;
+    } 
+
+    .ms_profile_wrapper h1, .ms_account_wrapper h2 {
+       font-size: 23px;
+    }
+
+    .registersec {
+        width:100%;
+    }
+
+    .registersec .ms_register_form {
+        padding-left: 0;
+    }
+
+    .ms_register_form h2 {
+        font-size: 18px;
+    }
+
+    /*---------album inner list----------*/
+
+    .album_inner_list {
+        width:100%;
+    }
+
+    .album_list_wrapper {
+        width:400%;
+    }
+
+    .fa_icon {
+       width:24px;  
+    }
+
+    /*---------admin-panel------------*/
+
+    .profile-top {
+        padding: 45px 21px;
+    }
+
+    .dashboard_img {
+        width: 100px;
+        height: 100px;
+   }
+
+   .profile-bottom {
+    padding:35px 11px;
+   }
+
+   .profile-bottom h1 {
+    font-size: 32px;
+    padding-top: 23px;
+}
+
+.lgotbtn a {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.maindashboardbdy .nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    overflow-x:scroll ;
+}
+
+.maindashboardbdy .nav-link {
+    width:175px;
+}
+
+.maindashboardbdy .ms_pro_form .form-group {
+   width:100%;
+}
+
+.form-groupmk {
+   width:100%;
+} 
+
+.maindashboardbdy #profile .form-group {
+    width:100%;
+}
+
+.ms_top_artist .ms_rcnt_box>.ms_rcnt_box_img {
+    margin-right: 0;
+}
+
+.fav_songs {
+    padding: 10px;
+}
+
+.maindashboardbdy .tab-content>.active {
+    border-radius: 0;
+}
+
+.registersec {
+   padding:40px 14px;
+ }
+
+.cat {
+    margin-bottom: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    overflow-x:scroll;
+    flex-wrap:nowrap;
+    justify-content: start;
+}
+
+.cat::-webkit-scrollbar{display: none;}
+
+
+.cat label input + span {
+    width:100px;
+}
+
+.ms_heading {
+    display:flex;
+}
+
+.ms_heading h1 {
+    font-size: 15px;
+    width: 65%;
+}
+
+span.veiw_all {
+  margin-top: -2px;
+}
+
+.songs_custom {
+    padding:0;
+}
+
+.songs_custom .ms_heading {
+    padding: 0 10px;
+}
+
+} 
