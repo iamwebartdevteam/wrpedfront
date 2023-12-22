@@ -8667,3 +8667,27 @@ input[type="range"]:active::-moz-range-thumb {
   display: block;
   margin: 0 auto 2em;
 }
+.cataTeb .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  line-height: 3em;
+  width: 8em;
+  height: 3em;
+  margin: 0 10px;
+  line-height: 40px;
+  cursor: pointer;
+  border: 1px solid #cd8200;
+  border-radius: 10px;
+  background-color: #cd8200;
+      color: #fff;
+}
+.cataTeb .nav-pills .nav-link{
+  line-height: 3em;
+  width: 8em;
+  height: 3em;
+  margin: 0 10px;
+  line-height: 40px;
+  cursor: pointer;
+  border: 1px solid #cd8200;
+  border-radius: 10px;
+      color: #e99709;
+}
