@@ -91,9 +91,9 @@ const Category = ({ setIsLogin }) => {
       {/* <InnerBanner /> */}
       <div class="ms_genres_wrapper">
         <div class="row justify-content-center">
-          <div className="col-md-12">
+          {/* <div className="col-md-12">
             <h2 className="text-center songHead">Songs Selection</h2>
-          </div>
+          </div> */}
           <div class="col-md-7">
             <div class="cat action">
               <label onClick={activeButton} class={isActive ? "" : "active"}>
