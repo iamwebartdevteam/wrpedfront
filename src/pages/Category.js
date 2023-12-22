@@ -14,14 +14,14 @@ const Category = ({ setIsLogin }) => {
 
   const [dataArry, setDataArry] = useState([]);
 
-  const activeButton = () => {
-    setIsActive(false);
-    setCataNameSlg("All");
-    setCategoriData("");
-    getAll_subcatagori();
-  };
+  // const activeButton = () => {
+  //   setIsActive(false);
+  //   setCataNameSlg("All");
+  //   setCategoriData("");
+  //   getAll_subcatagori();
+  // };
 
-  const getAll_subcatagori = async () => {
+  const getAll_subcatagori = async (data) => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.getMain_subCategory(header);
@@ -63,13 +63,16 @@ const Category = ({ setIsLogin }) => {
     } catch (error) {}
   };
 
-  const get_categoryList = async () => {
+  const get_categoryList = async (data) => {
+    if (data === "4") {
+      getAll_subcatagori();
+    }
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.get_subCategory(header);
+      const response = await API.get_subCategory(data, header);
       console.log("get_categoryList", response);
       if (response.data.success === 1) {
-        //setCatagoriMain(response.data.data);
+        setTableData(response.data.data);
       } else {
         // localStorage.removeItem("_tokenCode");
         // localStorage.removeItem("isLogin");
@@ -110,7 +113,7 @@ const Category = ({ setIsLogin }) => {
                   role="tab"
                   aria-controls="pills-home"
                   aria-selected="true"
-                  onClick={() => categoriy_details("4")}
+                  onClick={() => get_categoryList("4")}
                 >
                   All
                 </button>
@@ -125,6 +128,7 @@ const Category = ({ setIsLogin }) => {
                   role="tab"
                   aria-controls="pills-profile"
                   aria-selected="false"
+                  onClick={() => get_categoryList("2")}
                 >
                   Genre
                 </button>
@@ -139,6 +143,7 @@ const Category = ({ setIsLogin }) => {
                   role="tab"
                   aria-controls="pills-contact"
                   aria-selected="false"
+                  onClick={() => get_categoryList("1")}
                 >
                   Occasion
                 </button>
@@ -153,12 +158,13 @@ const Category = ({ setIsLogin }) => {
                   role="tab"
                   aria-controls="pills-mood"
                   aria-selected="false"
+                  onClick={() => get_categoryList("3")}
                 >
                   Mood
                 </button>
               </li>
             </ul>
-            <div class="tab-content" id="pills-tabContent">
+            {/* <div class="tab-content" id="pills-tabContent">
               <div
                 class="tab-pane fade show active"
                 id="pills-home"
@@ -195,40 +201,12 @@ const Category = ({ setIsLogin }) => {
               >
                 ...
               </div>
-            </div>
-
-            <div class="cat action">
-              <label onClick={activeButton} class={isActive ? "" : "active"}>
-                <span>All</span>
-              </label>
-              <label onClick={activeButton} class={isActive ? "" : "active"}>
-                <span>Genre</span>
-              </label>
-              <label onClick={activeButton} class={isActive ? "" : "active"}>
-                <span>Occasion</span>
-              </label>
-              <label onClick={activeButton} class={isActive ? "" : "active"}>
-                <span>Mood</span>
-              </label>
-              {/* {catagoriMain.map((item, index) => (
-                <>
-                  <label key={index}>
-                    <input
-                      onChange={() => categoriy_details(item.id, item.name)}
-                      type="checkbox"
-                      id={item.id}
-                      value={item.id}
-                    />
-                    <span>{item.name}</span>
-                  </label>
-                </>
-              ))} */}
-            </div>
+            </div> */}
           </div>
         </div>
         <div class="row justify-content-center">
           <div className="col-md-5">
-            <div class="srhbyx">
+            <div class="srhbyx" style={{ marginTop: 30 }}>
               <input
                 type="text"
                 class="form-control"

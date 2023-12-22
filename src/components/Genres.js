@@ -8,7 +8,7 @@ const Genres = ({ tableData, cataNameSlg }) => {
   };
   return (
     <>
-      <div class="ms_genres_wrapper">
+      <div class="ms_genres_wrapper" style={{ marginTop: 20 }}>
         <div class="row">
           <div class="col-lg-12">
             <div class="ms_heading">

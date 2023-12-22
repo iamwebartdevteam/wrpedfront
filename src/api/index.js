@@ -60,9 +60,9 @@ export const resend_otp = async (data) => {
     return e.response;
   }
 };
-export const get_subCategory = async (header) => {
+export const get_subCategory = async (data, header) => {
   try {
-    const url = c.CATAGORIES;
+    const url = c.GETSUBCATAGORY + "/" + data;
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });

@@ -64,30 +64,46 @@ const CategoryDetails = () => {
     <>
       {/* <InnerBanner /> */}
       {/* <CataDetails /> */}
-      <div class="ms_genres_wrapper">
+      <div class="ms_genres_wrapper mt-0">
         <div className="row justify-content-center">
-          <div className="col-md-9">
-            <div class="album_single_data">
-              <div class="album_single_img">
-                <img
-                  src={
-                    cataGoriData.image === undefined
-                      ? NOIMG
-                      : IMG + cataGoriData.image
-                  }
-                  alt=""
-                  class="img-fluid"
-                />
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-9">
+                <div class="album_single_data">
+                  <div class="album_single_img">
+                    <img
+                      src={
+                        cataGoriData.image === undefined
+                          ? NOIMG
+                          : IMG + cataGoriData.image
+                      }
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="album_single_text">
+                    <h2>{cataGoriData.name}</h2>
+                    <p class="singer_name">
+                      Category ,{" "}
+                      <span className="commonColor">
+                        {cataGoriData.category_name}
+                      </span>
+                    </p>
+                    <div class="about_artist">{cataGoriData.details}</div>
+                  </div>
+                </div>
               </div>
-              <div class="album_single_text">
-                <h2>{cataGoriData.name}</h2>
-                <p class="singer_name">
-                  Category ,{" "}
-                  <span className="commonColor">
-                    {cataGoriData.category_name}
-                  </span>
-                </p>
-                <div class="about_artist">{cataGoriData.details}</div>
+              <div className="col-md-3">
+                <div className="srhbyx">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search Songs"
+                  />
+                  <div class="icnprty">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </div>
+                </div>
               </div>
             </div>
 

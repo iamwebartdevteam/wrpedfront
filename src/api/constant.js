@@ -20,3 +20,4 @@ export const PAYMENT = `${URL}/completeorder`;
 export const ADDTOCART = `${URL}/addtocart`;
 export const GETCART = `${URL}/getcart-list`;
 export const DELETECARTITEM = `${URL}/deletecart-item`;
+export const GETSUBCATAGORY = `${URL}/getsubcategory`;
