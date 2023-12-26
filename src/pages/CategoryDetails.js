@@ -16,7 +16,7 @@ const CategoryDetails = () => {
   const [currentTrack, setCurrentTrack] = useState(songData[trackIndex]);
 
   const [cataGoriData, setCataGoriData] = useState([]);
-  console.log("songData", songData);
+
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
     setMusicIndex(songid);
@@ -31,8 +31,6 @@ const CategoryDetails = () => {
         localStorage.getItem("subCataId"),
         header
       );
-
-      console.log("responseCataDetails", response.data.data);
       localStorage.setItem("_cataGorid", response.data.data.category_id);
       setSongData(response.data.data.music);
       setCataGoriData(response.data.data);
@@ -52,6 +50,19 @@ const CategoryDetails = () => {
       };
       console.log("songObj", songObj);
       localStorage.setItem("__musicData", JSON.stringify(songObj));
+    } catch (error) {}
+  };
+
+  const searchAllSong = async (e) => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const reqObj = {
+        cataId: localStorage.getItem("subCataId"),
+        queris: e.target.value,
+      };
+      const response = await API.search_song_lists(reqObj, header);
+      console.log("response", response);
+      setSongData(response.data.data);
     } catch (error) {}
   };
 
@@ -99,6 +110,7 @@ const CategoryDetails = () => {
                     type="text"
                     class="form-control"
                     placeholder="Search Songs"
+                    onChange={searchAllSong}
                   />
                   <div class="icnprty">
                     <i class="fa fa-search" aria-hidden="true"></i>

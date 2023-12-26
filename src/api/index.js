@@ -296,3 +296,26 @@ export const search_song_list = async (data, header) => {
     return e.response;
   }
 };
+
+export const search_song_lists = async (data, header) => {
+  try {
+    const url = c.URL + "/Searchsong/" + data.cataId + "/" + data.queris;
+    const res = await axios.get(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const search_subcatagory_list = async (data, header) => {
+  try {
+    const url = c.URL + "/searchubcategory/" + data;
+    const res = await axios.get(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

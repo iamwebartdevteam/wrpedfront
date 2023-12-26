@@ -84,6 +84,22 @@ const Category = ({ setIsLogin }) => {
     } catch (error) {}
   };
 
+  const searchSubCatagori = async (e) => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.search_subcatagory_list(
+        e.target.value,
+        header
+      );
+      console.log("response", response);
+      if (response.data.success === 1) {
+        setTableData(response.data.data);
+      } else {
+        getAll_subcatagori();
+      }
+    } catch (error) {}
+  };
+
   useEffect(() => {
     get_categoryList();
     getAll_subcatagori();
@@ -164,44 +180,6 @@ const Category = ({ setIsLogin }) => {
                 </button>
               </li>
             </ul>
-            {/* <div class="tab-content" id="pills-tabContent">
-              <div
-                class="tab-pane fade show active"
-                id="pills-home"
-                role="tabpanel"
-                aria-labelledby="pills-home-tab"
-                tabindex="0"
-              >
-                ...
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-profile"
-                role="tabpanel"
-                aria-labelledby="pills-profile-tab"
-                tabindex="0"
-              >
-                ...
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-contact"
-                role="tabpanel"
-                aria-labelledby="pills-contact-tab"
-                tabindex="0"
-              >
-                ...
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-mood"
-                role="tabpanel"
-                aria-labelledby="pills-mood-tab"
-                tabindex="0"
-              >
-                ...
-              </div>
-            </div> */}
           </div>
         </div>
         <div class="row justify-content-center">
@@ -211,6 +189,7 @@ const Category = ({ setIsLogin }) => {
                 type="text"
                 class="form-control"
                 placeholder="Search Songs"
+                onChange={searchSubCatagori}
               />
               <div class="icnprty">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -219,8 +198,12 @@ const Category = ({ setIsLogin }) => {
           </div>
         </div>
 
-        {tableData === "" || tableData === undefined ? (
-          ""
+        {tableData === "" ||
+        tableData === undefined ||
+        tableData.length === 0 ? (
+          <>
+            <h2 className="noStyle">data not found</h2>
+          </>
         ) : (
           <Genres cataNameSlg={cataNameSlg} tableData={tableData} />
         )}

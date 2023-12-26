@@ -8678,9 +8678,9 @@ input[type="range"]:active::-moz-range-thumb {
   border: 1px solid #cd8200;
   border-radius: 10px;
   background-color: #cd8200;
-      color: #fff;
+  color: #fff;
 }
-.cataTeb .nav-pills .nav-link{
+.cataTeb .nav-pills .nav-link {
   line-height: 3em;
   width: 8em;
   height: 3em;
@@ -8689,5 +8689,11 @@ input[type="range"]:active::-moz-range-thumb {
   cursor: pointer;
   border: 1px solid #cd8200;
   border-radius: 10px;
-      color: #e99709;
+  color: #e99709;
+}
+.noStyle {
+  font-size: 30px;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 2em 0;
 }
