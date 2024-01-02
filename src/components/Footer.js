@@ -152,7 +152,7 @@ const Footer = ({ isOpen }) => {
           <div class="ms_copyright">
             <div class="footer_border"></div>
             <p>
-              Copyright &copy; 2023
+              Copyright &copy; 2024-25
               <a href="#"></a>
             </p>
           </div>

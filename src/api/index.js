@@ -300,6 +300,7 @@ export const search_song_list = async (data, header) => {
 export const search_song_lists = async (data, header) => {
   try {
     const url = c.URL + "/Searchsong/" + data.cataId + "/" + data.queris;
+    console.log("url", url);
     const res = await axios.get(url, data, {
       headers: JSON.parse(header),
     });
