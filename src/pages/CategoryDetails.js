@@ -17,6 +17,8 @@ const CategoryDetails = () => {
 
   const [cataGoriData, setCataGoriData] = useState([]);
 
+  console.log("songData", songData);
+
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
     setMusicIndex(songid);
@@ -55,10 +57,12 @@ const CategoryDetails = () => {
 
   const searchAllSong = async (e) => {
     const header = localStorage.getItem("_tokenCode");
+    const data = e.target.value;
+    console.log("data", data);
     try {
       const reqObj = {
         cataId: localStorage.getItem("subCataId"),
-        queris: e.target.value,
+        queris: data === "" ? "asscx" : e.target.value,
       };
       const response = await API.search_song_lists(reqObj, header);
       console.log("response", response);
@@ -68,6 +72,7 @@ const CategoryDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
     getVatagoriy_details();
   }, []);
 
@@ -128,8 +133,10 @@ const CategoryDetails = () => {
                   {/* <li>GENRES & MOODS</li> */}
                   <li>Action</li>
                 </ul>
-                {songData.length === 0 ? (
-                  <h1 className="noRechor">No Data Found</h1>
+                {songData === "" ||
+                songData.length === 0 ||
+                songData === undefined ? (
+                  <h1 className="noRechor">Data Not Found</h1>
                 ) : (
                   songData.map((item, index) => (
                     <ul>
