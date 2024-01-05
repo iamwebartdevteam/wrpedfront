@@ -179,6 +179,18 @@ export const getuserDataID = async (data, header) => {
     return e.response;
   }
 };
+export const getmusicBox = async (data, header) => {
+  try {
+    const url = c.SIGNUP + "/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
 
 export const getuser_update = async (data, header) => {
   try {

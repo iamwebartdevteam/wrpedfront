@@ -104,10 +104,8 @@ const AppRouter = () => {
                   <Route path="/wrapin-music" element={<WrapInMusic />} />
                   <Route path="/testimonials" element={<Testimonialss />} />
                   <Route path="/contact-us" element={<Contact />} />
-
                   <Route path="/song-list" element={<CategoryDetails />} />
                   <Route path="/song-details" element={<MusicTemplete />} />
-
                   <Route
                     path="/message-placement"
                     element={<MessagePlacePage />}
@@ -132,7 +130,6 @@ const AppRouter = () => {
                     }
                   />
                   <Route path="/songs-details" element={<SongDetails />} />
-
                   <Route
                     path="/thankyou"
                     element={<ThankYou setIsLogin={setIsLogin} />}
