@@ -43,8 +43,8 @@ const Container = () => {
       {/* <Bestsellers /> */}
       <HowItWorks />
       <SongCarousal title="Custom Messages For Any Occasion" />
-      <Testimonials />
-      <Faq />
+      {/* <Testimonials /> */}
+      {/* <Faq /> */}
     </>
   );
 };

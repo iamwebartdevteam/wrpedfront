@@ -36,21 +36,21 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/songs/sub-category" title="About Us">
+                <NavLink to="/song-list" title="Songs">
                   <span class="nav_icon">
                     <i class="bi bi-music-note"></i>
                   </span>
                   <span class="nav_text">Songs</span>
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="javascript:void(0)" title="Wrap In Music">
                   <span class="nav_icon">
                     <i class="bi bi-list-task"></i>
                   </span>
                   <span class="nav_text">How it Works</span>
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/wrapin-music" title="Wrap In Music">
                   <span class="nav_icon">

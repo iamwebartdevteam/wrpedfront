@@ -17,8 +17,6 @@ const CategoryDetails = () => {
 
   const [cataGoriData, setCataGoriData] = useState([]);
 
-  console.log("songData", songData);
-
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
     setMusicIndex(songid);
@@ -29,14 +27,18 @@ const CategoryDetails = () => {
   const getVatagoriy_details = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
+      const Allresponse = await API.get_subCategory("0", header);
+      console.log("get_categoryList", Allresponse);
       const response = await API.subCategoryIdDetails(
         localStorage.getItem("subCataId"),
         header
       );
+
+      console.log("response", response);
       localStorage.setItem("_cataGorid", response.data.data.category_id);
-      setSongData(response.data.data.music);
-      setCataGoriData(response.data.data);
-      setCurrentTrack(response.data.data.music[trackIndex]);
+      setSongData(Allresponse.data.data.music);
+      // setCataGoriData(response.data.data);
+      setCurrentTrack(Allresponse.data.data.music[trackIndex]);
       console.log("response.data.data", response.data.data.music[trackIndex]);
     } catch (error) {}
   };
@@ -69,10 +71,30 @@ const CategoryDetails = () => {
       setSongData(response.data.data);
     } catch (error) {}
   };
+  const get_categoryList = async (data) => {
+    if (data === "4") {
+      // getAll_subcatagori();
+    }
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.get_subCategory(data, header);
+      console.log("get_categoryList", response);
+      if (response.data.success === 1) {
+        setSongData(response.data.data.music);
+      } else {
+        // localStorage.removeItem("_tokenCode");
+        // localStorage.removeItem("isLogin");
+        // setIsLogin(localStorage.removeItem("isLogin"));
+        // if (localStorage.getItem("isLogin") === null) {
+        //   navigate("/login");
+        // }
+      }
+    } catch (error) {}
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
+    get_categoryList("0");
     getVatagoriy_details();
   }, []);
 
@@ -84,7 +106,7 @@ const CategoryDetails = () => {
         <div className="row justify-content-center">
           <div className="col-md-12">
             <div className="row">
-              <div className="col-md-9">
+              <div className="col-md-6">
                 <div class="album_single_data">
                   <div class="album_single_img">
                     <img
@@ -98,19 +120,88 @@ const CategoryDetails = () => {
                     />
                   </div>
                   <div class="album_single_text">
-                    <h2>{cataGoriData.name}</h2>
+                    <h2>{cataGoriData.name}Rooh Dy Rukh</h2>
                     <p class="singer_name">
-                      Category ,{" "}
                       <span className="commonColor">
                         {cataGoriData.category_name}
                       </span>
                     </p>
-                    <div class="about_artist">{cataGoriData.details}</div>
+                    <div class="about_artist">
+                      {cataGoriData.details} Lorem ipsum dolor sit amet
+                      consectetur, adipisicing elit. Aspernatur magnam cum
+                      quisquam ratione ipsa.{" "}
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="col-md-3">
-                <div className="srhbyx">
+              <div className="col-md-6 cataTeb">
+                <ul
+                  class="nav nav-pills mb-3 justify-content-center"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="pills-home-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-home"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-home"
+                      aria-selected="true"
+                      onClick={() => get_categoryList("0")}
+                    >
+                      All
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-profile-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-profile"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-profile"
+                      aria-selected="false"
+                      onClick={() => get_categoryList("2")}
+                    >
+                      Genre
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-contact-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-contact"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-contact"
+                      aria-selected="false"
+                      onClick={() => get_categoryList("1")}
+                    >
+                      Occasion
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-mood-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-mood"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-mood"
+                      aria-selected="false"
+                      onClick={() => get_categoryList("3")}
+                    >
+                      Mood
+                    </button>
+                  </li>
+                </ul>
+                <div className="srhbyx d-none">
                   <input
                     type="text"
                     class="form-control"
@@ -130,10 +221,9 @@ const CategoryDetails = () => {
                   <li>ID</li>
                   <li>Song Title</li>
                   <li> Genres</li>
-                  <li>Moods</li>
                   <li>Occasion</li>
+                  <li>Moods</li>
                   <li>Amount </li>
-
                   <li>Action</li>
                 </ul>
                 {songData === "" ||
@@ -177,7 +267,7 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">Rap / Hip-Hop</Link>
+                        <Link to="javascript:void(0)">{item.occasion}</Link>
                       </li>
                       <li
                         className={
@@ -185,7 +275,7 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">Rap / Hip-Hop</Link>
+                        <Link to="javascript:void(0)">{item.genre}</Link>
                       </li>
                       <li
                         className={
@@ -193,7 +283,7 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">Rap / Hip-Hop</Link>
+                        <Link to="javascript:void(0)">{item.mood}</Link>
                       </li>
                       <li
                         className={

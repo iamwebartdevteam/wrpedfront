@@ -129,7 +129,7 @@ const Category = ({ setIsLogin }) => {
                   role="tab"
                   aria-controls="pills-home"
                   aria-selected="true"
-                  onClick={() => get_categoryList("4")}
+                  onClick={() => get_categoryList("0")}
                 >
                   All
                 </button>
