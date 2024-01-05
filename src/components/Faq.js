@@ -1,6 +1,6 @@
 import React from "react";
-
-const Faq = () => {
+import { Accordion, AccordionItem } from "@szhsin/react-accordion";
+const Faq = ({ tableData }) => {
   return (
     <>
       <div class="ms_genres_wrapper">
@@ -9,52 +9,13 @@ const Faq = () => {
             <h1>FAQ</h1>
           </div>
           <div class="col-md-12">
-            <ul class="accordion">
-              <li>
-                <a class="toggle" href="#">
-                  Item 1
-                </a>
-                <p class="inner">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
-                  ipsam officia saepe qui deserunt quis cum. Eveniet recusandae
-                  non nemo voluptatibus similique beatae odit aperiam sapiente
-                  esse vel reprehenderit aliquam officiis, dolor ea, iure, illo.
-                </p>
-              </li>
-              <li>
-                <a class="toggle" href="#">
-                  Item 2
-                </a>
-                <p class="inner">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
-                  ipsam officia saepe qui deserunt quis cum. Eveniet recusandae
-                  non nemo voluptatibus similique beatae odit aperiam sapiente
-                  esse vel reprehenderit aliquam officiis, dolor ea, iure, illo.
-                </p>
-              </li>
-              <li>
-                <a class="toggle" href="#">
-                  Item 3
-                </a>
-                <p class="inner">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
-                  ipsam officia saepe qui deserunt quis cum. Eveniet recusandae
-                  non nemo voluptatibus similique beatae odit aperiam sapiente
-                  esse vel reprehenderit aliquam officiis, dolor ea, iure, illo.
-                </p>
-              </li>
-              <li>
-                <a class="toggle" href="#">
-                  Item 4
-                </a>
-                <p class="inner">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
-                  ipsam officia saepe qui deserunt quis cum. Eveniet recusandae
-                  non nemo voluptatibus similique beatae odit aperiam sapiente
-                  esse vel reprehenderit aliquam officiis, dolor ea, iure, illo.
-                </p>
-              </li>
-            </ul>
+            <Accordion>
+              {tableData.map((item, index) => (
+                <AccordionItem header={item.question}>
+                  {item.answer}
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </div>

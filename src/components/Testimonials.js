@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Testimonials = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <div class="ms_advr_wrapper ms_advr2">
@@ -15,7 +19,7 @@ const Testimonials = () => {
         </div>
       </div>
       <div class="ms_genres_wrapper">
-        <div class="row g-0">
+        <div class="row g-0 d-none">
           <div class="col-lg-12">
             <div class="ms_heading">
               <h1>Testimonials</h1>

@@ -2966,6 +2966,22 @@ a.ms_btn.play_btn.btn_pause span.play_all {
   right: auto;
   text-align: center;
 }
+.sngover {
+  overflow-x: scroll;
+}
+.sngover ul li {
+  display: inline-block;
+  width: 25%;
+  color: #cd8200;
+  position: relative;
+  text-transform: capitalize;
+  top: auto;
+  right: auto;
+  text-align: center;
+}
+.songList .album_list_wrapper > ul > li {
+  width: 14%;
+}
 .album_list_wrapper > ul > li > a {
   color: #fff;
   margin-top: 10px;
@@ -7200,7 +7216,7 @@ ul.accordion li {
   margin: 0.5em 0;
 }
 
-ul.accordion li a.toggle {
+.szh-accordion__item-btn {
   width: 100%;
   display: block;
   background: rgba(0, 0, 0, 0.78);
@@ -7208,9 +7224,26 @@ ul.accordion li a.toggle {
   padding: 0.75em;
   border-radius: 0.15em;
   transition: background 0.3s ease;
+  font-size: 17px;
+  text-align: left;
+  border: 2px solid #b58028;
 }
-
-ul.accordion li a.toggle:hover {
+.szh-accordion__item-content {
+  border: 2px solid #b58028;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-top: 0;
+}
+.szh-accordion__item {
+  margin-bottom: 15px;
+}
+.accordion-header .accordion-button {
+  font-size: 20px;
+}
+.accordion-body {
+  padding: 20px;
+}
+.szh-accordion__item-heading button:hover {
   background: rgba(0, 0, 0, 0.9);
 }
 

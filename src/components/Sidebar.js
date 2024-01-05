@@ -60,7 +60,7 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/testimonials" title="Songs">
+                <NavLink to="/testimonials" title="Testimonials">
                   <span class="nav_icon">
                     <i class="bi bi-people"></i>
                   </span>

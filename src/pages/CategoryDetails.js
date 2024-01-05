@@ -124,13 +124,16 @@ const CategoryDetails = () => {
               </div>
             </div>
 
-            <div class="album_inner_list">
+            <div class="album_inner_list songList">
               <div class="album_list_wrapper">
                 <ul class="album_list_name">
                   <li>ID</li>
                   <li>Song Title</li>
-                  <li>Amount</li>
-                  {/* <li>GENRES & MOODS</li> */}
+                  <li> Genres</li>
+                  <li>Moods</li>
+                  <li>Occasion</li>
+                  <li>Amount </li>
+
                   <li>Action</li>
                 </ul>
                 {songData === "" ||
@@ -174,20 +177,35 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">
-                          $ {item.amount} : 00
-                        </Link>
+                        <Link to="javascript:void(0)">Rap / Hip-Hop</Link>
                       </li>
-                      {/* <li
+                      <li
+                        className={
+                          musicIndex === item.id ? "songActive" : "calll"
+                        }
+                        onClick={() => musiaChoose(index, item.id)}
+                      >
+                        <Link to="javascript:void(0)">Rap / Hip-Hop</Link>
+                      </li>
+                      <li
+                        className={
+                          musicIndex === item.id ? "songActive" : "calll"
+                        }
+                        onClick={() => musiaChoose(index, item.id)}
+                      >
+                        <Link to="javascript:void(0)">Rap / Hip-Hop</Link>
+                      </li>
+                      <li
                         className={
                           musicIndex === item.id ? "songActive" : "calll"
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
                         <Link to="javascript:void(0)">
-                          Rap / Hip-Hop, Anniversary, heartfe
+                          $ {item.amount} : 00
                         </Link>
-                      </li> */}
+                      </li>
+
                       <li>
                         <Link
                           onClick={() =>
@@ -214,11 +232,11 @@ const CategoryDetails = () => {
           </div>
         </div>
 
-        <div class="ms_view_more padder_bottom20">
+        {/* <div class="ms_view_more padder_bottom20">
           <a href="#" class="ms_btn">
             view more
           </a>
-        </div>
+        </div> */}
       </div>
       {songData.length === 0 ? (
         ""
