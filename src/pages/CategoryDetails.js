@@ -15,7 +15,7 @@ const CategoryDetails = () => {
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(songData[trackIndex]);
 
-  const [cataGoriData, setCataGoriData] = useState([]);
+  const [cataGoriData, setCataGoriData] = useState("");
 
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
@@ -24,22 +24,21 @@ const CategoryDetails = () => {
     setTrackIndex(index);
   };
 
+  // ? First time data get api
   const getVatagoriy_details = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const Allresponse = await API.get_subCategory("0", header);
+      const Allresponse = await API.get_subCategory("1", header);
       console.log("get_categoryList", Allresponse);
       const response = await API.subCategoryIdDetails(
         localStorage.getItem("subCataId"),
         header
       );
-
+      setCurrentTrack(Allresponse.data.data.music[trackIndex]);
       console.log("response", response);
       localStorage.setItem("_cataGorid", response.data.data.category_id);
       setSongData(Allresponse.data.data.music);
       // setCataGoriData(response.data.data);
-      setCurrentTrack(Allresponse.data.data.music[trackIndex]);
-      console.log("response.data.data", response.data.data.music[trackIndex]);
     } catch (error) {}
   };
 
@@ -71,30 +70,24 @@ const CategoryDetails = () => {
       setSongData(response.data.data);
     } catch (error) {}
   };
-  const get_categoryList = async (data) => {
-    if (data === "4") {
-      // getAll_subcatagori();
-    }
+  const get_categoryList = async (data, title) => {
     const header = localStorage.getItem("_tokenCode");
+    setCataGoriData(title);
     try {
       const response = await API.get_subCategory(data, header);
       console.log("get_categoryList", response);
-      if (response.data.success === 1) {
+      if (response.data.data.success === 1) {
         setSongData(response.data.data.music);
+        setCurrentTrack(response.data.data.music[trackIndex]);
       } else {
-        // localStorage.removeItem("_tokenCode");
-        // localStorage.removeItem("isLogin");
-        // setIsLogin(localStorage.removeItem("isLogin"));
-        // if (localStorage.getItem("isLogin") === null) {
-        //   navigate("/login");
-        // }
       }
     } catch (error) {}
   };
+  console.log("currentTrack", currentTrack);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    get_categoryList("0");
+    //get_categoryList("2");
     getVatagoriy_details();
   }, []);
 
@@ -111,26 +104,36 @@ const CategoryDetails = () => {
                   <div class="album_single_img">
                     <img
                       src={
-                        cataGoriData.image === undefined
+                        currentTrack === undefined
                           ? NOIMG
-                          : IMG + cataGoriData.image
+                          : currentTrack.image === ""
+                          ? NOIMG
+                          : IMG + currentTrack.image
                       }
                       alt=""
                       class="img-fluid"
                     />
                   </div>
                   <div class="album_single_text">
-                    <h2>{cataGoriData.name}Rooh Dy Rukh</h2>
+                    <h2>
+                      {currentTrack === undefined ? "" : currentTrack.name}
+                    </h2>
                     <p class="singer_name">
                       <span className="commonColor">
-                        {cataGoriData.category_name}
+                        {cataGoriData === "" ? "Occasion" : cataGoriData}
                       </span>
                     </p>
                     <div class="about_artist">
-                      {cataGoriData.details} Lorem ipsum dolor sit amet
-                      consectetur, adipisicing elit. Aspernatur magnam cum
-                      quisquam ratione ipsa.{" "}
+                      {currentTrack === undefined
+                        ? ""
+                        : currentTrack.description}
                     </div>
+                    <p class="singer_name">
+                      <span className="commonColor" style={{ fontSize: 30 }}>
+                        ${currentTrack === undefined ? "" : currentTrack.amount}
+                        .00
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -150,7 +153,7 @@ const CategoryDetails = () => {
                       role="tab"
                       aria-controls="pills-home"
                       aria-selected="true"
-                      onClick={() => get_categoryList("0")}
+                      onClick={() => get_categoryList("1", "Occasion")}
                     >
                       All
                     </button>
@@ -165,7 +168,7 @@ const CategoryDetails = () => {
                       role="tab"
                       aria-controls="pills-profile"
                       aria-selected="false"
-                      onClick={() => get_categoryList("2")}
+                      onClick={() => get_categoryList("2", "Genre")}
                     >
                       Genre
                     </button>
@@ -180,7 +183,7 @@ const CategoryDetails = () => {
                       role="tab"
                       aria-controls="pills-contact"
                       aria-selected="false"
-                      onClick={() => get_categoryList("1")}
+                      onClick={() => get_categoryList("1", "Occasion")}
                     >
                       Occasion
                     </button>
@@ -195,7 +198,7 @@ const CategoryDetails = () => {
                       role="tab"
                       aria-controls="pills-mood"
                       aria-selected="false"
-                      onClick={() => get_categoryList("3")}
+                      onClick={() => get_categoryList("3", "Mood")}
                     >
                       Mood
                     </button>

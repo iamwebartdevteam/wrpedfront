@@ -65,7 +65,7 @@ const AddToCart = ({ cartItem, totalAmount, rootApiData }) => {
         <>
           <div className="cartiMGshop">
             <img src={cartimg} />
-            <Link to="/songs/sub-category" className="ms_btn">
+            <Link to="/song-list" className="ms_btn">
               continue shopping
             </Link>
           </div>
@@ -138,7 +138,7 @@ const AddToCart = ({ cartItem, totalAmount, rootApiData }) => {
           <div className="row containerfh">
             <div className="col-md-8">
               <div className="align-items-center d-flex h-100 justify-content-lg-start text-lg-startss">
-                <Link to="/songs/sub-category" className="ms_btn">
+                <Link to="/song-list" className="ms_btn">
                   continue shopping
                 </Link>
               </div>

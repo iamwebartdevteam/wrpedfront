@@ -85,7 +85,7 @@ select.form-control:not([size]):not([multiple]) {
   padding-top: 100px !important;
 }
 .padder_top80 {
-  padding-top: 12em !important;
+  padding-top: 8em !important;
 }
 .padder_top90 {
   padding-top: 90px !important;
@@ -2822,15 +2822,15 @@ button.jp-shuffle .ms_play_control:hover {
   z-index: -1;
 }
 .album_single_img {
-  width: 240px;
+  width: 200px;
   float: left;
-  height: 230px;
+  height: 200px;
   background: #ffa812;
   padding: 10px;
   border-radius: 10px;
 }
 .album_single_data {
-  padding-bottom: 50px;
+  padding-bottom: 16px;
   display: inline-block;
   width: 100%;
   position: relative;
@@ -2851,6 +2851,7 @@ button.jp-shuffle .ms_play_control:hover {
   font-size: 22px;
   color: #fff;
   padding-bottom: 10px;
+  text-transform: capitalize;
 }
 .album_single_text p.singer_name {
   color: #fff;
@@ -3182,6 +3183,8 @@ ul.play_active_song .play_hover {
   font-size: 15px;
   color: #dedede;
   line-height: 30px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
 }
 .about_artist a:hover {
   color: #cd8200;
@@ -4866,7 +4869,7 @@ body.loaded.modal-open .ms_player_wrapper {
     font-size: 13px;
   }
   .ms_header {
-    padding: 20px 30px;
+    padding: 5px 30px;
   }
   .ms_top_right .ms_top_lang {
     padding-right: 5px;
@@ -5237,6 +5240,7 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .album_single_text {
     padding-top: 0;
+    text-transform: capitalize;
   }
   a.ms_btn.play_btn {
     width: 130px;
@@ -7403,7 +7407,7 @@ ul.accordion p {
 
 .imgbanner h1 {
   font-family: "Neon Lights";
-  font-size: 52px;
+  font-size: 40px;
   color: #1a1a1a;
   text-shadow: 3px 2px 2px #f5a418;
   letter-spacing: 8px;
