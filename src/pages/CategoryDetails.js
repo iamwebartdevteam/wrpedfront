@@ -270,7 +270,9 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">{item.occasion}</Link>
+                        <Link to="javascript:void(0)">
+                          {item.occasion === "" ? "N/A" : item.occasion}
+                        </Link>
                       </li>
                       <li
                         className={
@@ -278,7 +280,9 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">{item.genre}</Link>
+                        <Link to="javascript:void(0)">
+                          {item.genre === "" ? "N/A" : item.genre}
+                        </Link>
                       </li>
                       <li
                         className={
@@ -286,7 +290,9 @@ const CategoryDetails = () => {
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">{item.mood}</Link>
+                        <Link to="javascript:void(0)">
+                          {item.mood === "" ? "N/A" : item.mood}
+                        </Link>
                       </li>
                       <li
                         className={
