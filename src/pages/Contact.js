@@ -7,7 +7,6 @@ const Contact = () => {
   }, []);
   return (
     <>
-      <InnerBanner />
       <div class="ms_profile_wrapper">
         <div class="ms_profile_box">
           <h1>Send Us a Message</h1>

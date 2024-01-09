@@ -46,6 +46,7 @@ const MyAccount = ({ setIsLogin }) => {
         localStorage.getItem("__userId"),
         header
       );
+      console.log("response", response);
       setFormData(response.data.data);
       if (response.data.is_login === false) {
         localStorage.removeItem("_tokenCode");

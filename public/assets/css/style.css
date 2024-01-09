@@ -2845,7 +2845,7 @@ button.jp-shuffle .ms_play_control:hover {
   width: calc(100% - 240px);
   float: left;
   padding-left: 35px;
-  padding-top: 55px;
+  padding-top: 0px;
 }
 .album_single_text h2 {
   font-size: 22px;
@@ -2956,6 +2956,9 @@ a.ms_btn.play_btn.btn_pause span.play_all {
   padding: 0px;
   margin: 0px;
   list-style: none;
+}
+.aboutVideo {
+  height: 600px;
 }
 .album_list_wrapper > ul > li {
   display: inline-block;
@@ -8733,4 +8736,15 @@ input[type="range"]:active::-moz-range-thumb {
   text-transform: capitalize;
   text-align: center;
   margin: 2em 0;
+}
+.aboutWrap {
+  color: #b37812;
+  font-size: 20px;
+  line-height: 35px;
+  margin-bottom: 2em;
+}
+.abotHead {
+  font-size: 30px;
+  margin: 3em 0 1em;
+  text-align: center;
 }
