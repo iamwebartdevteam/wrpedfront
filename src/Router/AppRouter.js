@@ -53,7 +53,7 @@ const AppRouter = () => {
   const rootApiData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.all_song_list(header);
+      const response = await API.aboutData(header);
 
       const cartresponse = await API.getCartList(
         localStorage.getItem("__userId"),
@@ -80,6 +80,7 @@ const AppRouter = () => {
             sidebarOpen={sidebarOpen}
             setIsLogin={setIsLogin}
             isLogin={isLogin}
+            trackData={trackData}
           />
           <div
             class={
@@ -101,7 +102,10 @@ const AppRouter = () => {
                     path="/songs/sub-category"
                     element={<Category setIsLogin={setIsLogin} />}
                   />
-                  <Route path="/wrapin-music" element={<WrapInMusic />} />
+                  <Route
+                    path="/wrapin-music"
+                    element={<WrapInMusic trackData={trackData} />}
+                  />
                   <Route path="/testimonials" element={<Testimonialss />} />
                   <Route path="/contact-us" element={<Contact />} />
                   <Route path="/song-list" element={<CategoryDetails />} />

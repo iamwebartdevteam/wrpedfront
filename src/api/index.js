@@ -286,9 +286,9 @@ export const payment_check = async (data, header) => {
   }
 };
 
-export const all_song_list = async (header) => {
+export const aboutData = async (header) => {
   try {
-    const url = c.SONG;
+    const url = c.URL + "/aboutus";
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
@@ -297,6 +297,7 @@ export const all_song_list = async (header) => {
     return e.response;
   }
 };
+
 export const search_song_list = async (data, header) => {
   try {
     const url = c.SONG + "/" + "search-songs";

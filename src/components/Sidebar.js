@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/wlogo.png";
 import * as API from "../api/index";
+import { IMG } from "../api/constant";
 
-const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem }) => {
+const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
   return (
     <>
       <div
@@ -16,12 +17,12 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem }) => {
           <div class="ms_logo_inner">
             <div class="ms_logo">
               <Link to="/">
-                <img src={logo} alt="" class="img-fluid w-75" />
+                <img src={IMG + trackData.logo} alt="" class="img-fluid w-75" />
               </Link>
             </div>
             <div class="ms_logo_open">
               <Link to="/">
-                <img src={logo} alt="" class="img-fluid" />
+                <img src={IMG + trackData.logo} alt="" class="img-fluid" />
               </Link>
             </div>
           </div>
