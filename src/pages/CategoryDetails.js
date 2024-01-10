@@ -28,7 +28,7 @@ const CategoryDetails = () => {
   const getVatagoriy_details = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const Allresponse = await API.get_subCategory("1", header);
+      const Allresponse = await API.get_subCategory("0", header);
       console.log("get_categoryList", Allresponse);
       const response = await API.subCategoryIdDetails(
         localStorage.getItem("subCataId"),
@@ -153,7 +153,7 @@ const CategoryDetails = () => {
                       role="tab"
                       aria-controls="pills-home"
                       aria-selected="true"
-                      onClick={() => get_categoryList("1", "Occasion")}
+                      onClick={() => get_categoryList("0", "Occasion")}
                     >
                       All
                     </button>
@@ -223,8 +223,8 @@ const CategoryDetails = () => {
                 <ul class="album_list_name">
                   <li>ID</li>
                   <li>Song Title</li>
+                  <li>Occasion </li>
                   <li> Genres</li>
-                  <li>Occasion</li>
                   <li>Moods</li>
                   <li>Amount </li>
                   <li>Action</li>
