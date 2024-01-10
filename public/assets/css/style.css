@@ -8747,4 +8747,5 @@ input[type="range"]:active::-moz-range-thumb {
   font-size: 30px;
   margin: 3em 0 1em;
   text-align: center;
+  text-transform: capitalize;
 }
