@@ -38,11 +38,11 @@ const Container = () => {
         </div>
       </div>
 
-      <SongCarousal ftitle="Trending Songs" />
+      {/* <SongCarousal ftitle="Trending Songs" /> */}
       {/* <Genres /> */}
       {/* <Bestsellers /> */}
-      <HowItWorks />
-      <SongCarousal title="Custom Messages For Any Occasion" />
+      {/* <HowItWorks />
+      <SongCarousal title="Custom Messages For Any Occasion" /> */}
       {/* <Testimonials /> */}
       {/* <Faq /> */}
     </>

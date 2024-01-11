@@ -90,7 +90,8 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
               <li>
                 <div className="floating">
                   <Link to="/cart">
-                    <i class="bi bi-cart3"></i>
+                    <i class="bi bi-cart3"></i>{" "}
+                    <span class="nav_text">Cart</span>
                   </Link>
                   {isLogin ? (
                     <>

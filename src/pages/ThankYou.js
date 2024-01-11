@@ -27,11 +27,11 @@ const ThankYou = () => {
         console.log("reqObj", reqObj);
         const response = await API.payment_check(reqObj, header);
         if (response.data.success === 1) {
-          MESSAGE(response.data.msg, 1);
+          //MESSAGE(response.data.msg, 1);
           setMusic(response.data.data);
         } else {
           navaget("/");
-          MESSAGE(response.data.msg);
+          //MESSAGE(response.data.msg);
         }
         console.log("response", response);
       } catch (error) {}
@@ -114,7 +114,7 @@ const ThankYou = () => {
                   </div>
                   <div class="col-md-12" style={{ marginTop: "5em" }}>
                     <div class="btnprt text-center mt-5">
-                      <Link to="/songs" class="ms_btn">
+                      <Link to="/songs-list" class="ms_btn">
                         Back to Song
                       </Link>
                     </div>
