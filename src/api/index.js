@@ -345,3 +345,14 @@ export const getfaqdata = async (header) => {
     return e.response;
   }
 };
+export const contactUspage = async (data, header) => {
+  try {
+    const url = c.URL + "/contactus";
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
