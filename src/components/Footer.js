@@ -1,17 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { IMG } from "../api/constant";
 
-const Footer = ({ isOpen }) => {
+const Footer = ({ isOpen, trackData }) => {
   return (
-    <div>
+    <>
       <div class="ms_footer_wrapper">
-        <div class="ms_footer_logo">
-          <Link to="/">
-            <img src="assets/images/logo-m.png" alt="" />
-          </Link>
-        </div>
         <div class={isOpen ? "ms_footer_inner footer_padd" : "ms_footer_inner"}>
-          <div class="row">
+          {/* <div class="row">
             <div class="col-lg-3 col-md-6">
               <div class="footer_box">
                 <h1 class="footer_title"> music station</h1>
@@ -146,19 +142,46 @@ const Footer = ({ isOpen }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="ms_copyright">
-            <div class="footer_border"></div>
-            <p>
-              Copyright &copy; 2024-25
-              <a href="#"></a>
-            </p>
+          </div> */}
+          <div className="row">
+            <div class="col-lg-5">
+              <div class="ms_copyright" style={{ padding: 0 }}>
+                <ul>
+                  <li>
+                    <Link to="/wrapin-music">About Us </Link>
+                  </li>
+                  <li>
+                    <Link to="/song-list">Songs</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact-us">Contact Us </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-md-2 text-center">
+              <img className="flogo" src={IMG + trackData.logo} />
+            </div>
+            <div class="col-lg-5">
+              <div class="ms_copyright" style={{ display: "flex" }}>
+                <ul>
+                  <li>
+                    <Link to="/#">Privacy Policy </Link>
+                  </li>
+                  <li>
+                    <Link to="/#">T&C</Link>
+                  </li>
+                </ul>
+                <p>
+                  Copyright &copy; 2024-25
+                  <a href="#"></a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

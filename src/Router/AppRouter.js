@@ -208,7 +208,7 @@ const AppRouter = () => {
             )}
           </div>
         </div>
-        <Footer isOpen={isOpen} />
+        <Footer trackData={trackData} isOpen={isOpen} />
         {/* <AudioTrack tracks={tracks} musicIndex={musicIndex} /> */}
       </Router>
     </>

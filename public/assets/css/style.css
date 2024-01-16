@@ -1671,8 +1671,6 @@ span.ovrly_text2 {
   background-size: cover;
   position: relative;
   z-index: 1;
-  margin-bottom: 40px;
-  padding: 50px 0;
 }
 .ms_footer_wrapper:after {
   position: absolute;
@@ -1878,6 +1876,11 @@ h1.footer_title:after {
   line-height: 35px;
   border-radius: 5px;
   background-color: #cd8200;
+  text-align: left;
+}
+.flogo {
+  width: 25%;
+  margin-top: 0.52em;
 }
 .foo_sharing ul li a:hover {
   box-shadow: 0 0 18px 0 #cd8200;
@@ -1886,8 +1889,6 @@ h1.footer_title:after {
   width: 93%;
 }
 .ms_copyright {
-  text-align: center;
-  margin-top: 40px;
   width: 100%;
   display: inline-block;
   padding: 0px 0px 0px 80px;
@@ -1896,6 +1897,15 @@ h1.footer_title:after {
   color: #ffffff;
   margin: 0px;
   padding: 20px 0px;
+  text-align: right;
+}
+.ms_copyright ul li {
+  display: inline-block;
+  margin-top: 20px;
+}
+.ms_copyright ul li a {
+  display: inline-block;
+  padding: 0 15px;
 }
 .ms_copyright p a {
   color: #cd8200;

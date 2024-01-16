@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import InnerBanner from "../components/InnerBanner";
-import videos from "../assets/promo.mp4";
+
 import { Link } from "react-router-dom";
 import { IMG } from "../api/constant";
 const WrapInMusic = ({ trackData }) => {
