@@ -86,14 +86,6 @@ const MusicDetails = ({ rootApiData }) => {
                           JSON.parse(localStorage.getItem("__template")).amount
                         )}
                     {}
-                    {/* {songDetails.length === ""
-                      ? songDetails.song_amount
-                      : songDetails.song_amount
-                      ? songDetails.song_amount
-                      : parseInt(songDetails.song_amount) +
-                        parseInt(
-                          JSON.parse(localStorage.getItem("__template")).amount
-                        )} */}
                     .00
                   </strong>
                   {JSON.parse(localStorage.getItem("__template")).amount ===

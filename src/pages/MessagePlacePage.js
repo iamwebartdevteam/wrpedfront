@@ -153,7 +153,6 @@ const MessagePlacePage = () => {
   };
 
   const usermargitype = (e) => {
-    console.log("hello", e.target.value);
     setUserMargi(e.target.value);
     if (e.target.value === "1") {
       // songProcess();
@@ -181,7 +180,7 @@ const MessagePlacePage = () => {
         <div className="col-md-12">
           <div class="ms_profile_box messPlacement">
             <div class="ms_pro_form">
-              <div className="countDown">
+              <div className="countDowns">
                 {/* <CountdownCircleTimer
                   size={70}
                   isPlaying={recorderControls.isRecording}
@@ -201,6 +200,11 @@ const MessagePlacePage = () => {
                 <h3 className="headingC">
                   <i class="bi bi-music-note-beamed"></i> {songDetails.title}
                 </h3>
+                <p>
+                  You can choose to record your voice at the begining and end of
+                  the song and also use the prerecorded middle message or record
+                  your own
+                </p>
               </div>
 
               {JSON.parse(localStorage.getItem("__template")).temtype === 1 ? (
@@ -220,7 +224,9 @@ const MessagePlacePage = () => {
               <div className="row align-items-center justify-content-center">
                 <div className="col-md-4">
                   <h4 className="typeLabel">Intro</h4>
-
+                  <p className="lablePara">
+                    Record your own personal greeting up to 12 seconds long
+                  </p>
                   <div class="form-groupd">
                     <AudioRecorder
                       recorderControls={recorderControls}
@@ -259,7 +265,11 @@ const MessagePlacePage = () => {
                 {JSON.parse(localStorage.getItem("__template")).temtype ===
                 1 ? (
                   <div className={userMargi === "2" ? "col-md-4" : "d-none"}>
-                    <h4 className="typeLabel">Middle</h4>
+                    <h4 className="typeLabel">Middle </h4>
+                    <p className="lablePara">
+                      You can keep the pre-recorded message or record your very
+                      own message or story
+                    </p>
                     <div class="form-groupd">
                       <AudioRecorder
                         recorderControls={recorderControlM}
@@ -271,6 +281,31 @@ const MessagePlacePage = () => {
                         downloadOnSavePress={false}
                         downloadFileExtension="mp3"
                       />
+                      <p
+                        className="lablePara"
+                        style={{ marginTop: 10, marginBottom: 0 }}
+                      >
+                        Maximum Length{" "}
+                        {JSON.parse(localStorage.getItem("__template"))
+                          .duration > 60 ? (
+                          <>
+                            {
+                              JSON.parse(localStorage.getItem("__template"))
+                                .duration
+                            }
+                            minutes
+                          </>
+                        ) : (
+                          <>
+                            {
+                              JSON.parse(localStorage.getItem("__template"))
+                                .duration
+                            }{" "}
+                            {}
+                            seconds
+                          </>
+                        )}{" "}
+                      </p>
                       <div id="recordAudiossM"></div>
                       <div className={isPlaym ? "" : "d-none"}>
                         <button
@@ -289,6 +324,9 @@ const MessagePlacePage = () => {
 
                 <div className="col-md-4">
                   <h4 className="typeLabel">Outro</h4>
+                  <p className="lablePara">
+                    Your parting words up to 12 seconds long
+                  </p>
                   <div class="form-groups">
                     <AudioRecorder
                       recorderControls={recorderControlss}

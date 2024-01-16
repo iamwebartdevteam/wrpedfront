@@ -38,19 +38,17 @@ const MusicTemplete = () => {
       localStorage.setItem("_cataGorid", response.data.data.category_id);
       setCataGoriData(response.data.data);
       setCurrentTrack(response.data.data.music[trackIndex]);
-      console.log(
-        "response.data.data.music[trackIndex]",
-        response.data.data.music[trackIndex]
-      );
+
       setSongData(response.data.data.music);
     } catch (error) {}
   };
 
-  const add_music_user = (typeTemp, amount) => {
+  const add_music_user = (typeTemp, amount, messlength) => {
     try {
       const songObj = {
         temtype: typeTemp,
         amount: amount,
+        duration: messlength,
       };
       console.log("songObj", songObj);
       localStorage.setItem("__template", JSON.stringify(songObj));
@@ -150,25 +148,15 @@ const MusicTemplete = () => {
                           </>
                         )}
                       </li>
-                      {/* <li
-                        className={
-                          musicIndex === item.id ? "songActive" : "calll"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        <Link to="javascript:void(0)">
-                          Rap / Hip-Hop, Anniversary, heartfe
-                        </Link>
-                      </li> */}
                       <li>
                         <Link
                           onClick={() =>
                             add_music_user(
                               item.template_type_status,
-                              item.amount
+                              item.amount,
+                              item.messlength
                             )
                           }
-                          // onClick={add_music_user}
                           to="/message-placement"
                           class="cart_btn"
                           state={{ tamId: item.id }}

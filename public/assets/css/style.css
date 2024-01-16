@@ -8196,7 +8196,13 @@ input[type="range"]:active::-moz-range-thumb {
 }
 .headingC {
   font-size: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
+}
+.countDowns p {
+  color: #b17a1f;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto 2em;
 }
 .songDetais {
 }
@@ -8748,4 +8754,9 @@ input[type="range"]:active::-moz-range-thumb {
   margin: 3em 0 1em;
   text-align: center;
   text-transform: capitalize;
+}
+.lablePara {
+  margin-bottom: 1em;
+  color: #b17a1f;
+  font-size: 14px;
 }
