@@ -35,6 +35,8 @@ const MessagePlacePage = () => {
   const [voiceMessageMiddil, setVoiceMessageMiddil] = useState("");
   const [voiceMessageEnd, setVoiceMessageEnd] = useState("");
 
+  console.log("userMargi", userMargi);
+
   // ? Start record
   const recorderControls = useAudioRecorder();
   const addAudioElement = (blob) => {
@@ -105,6 +107,7 @@ const MessagePlacePage = () => {
         intro: voiceMessage,
         middle: voiceMessageMiddil,
         outro: voiceMessageEnd,
+        isRecord: userMargi,
       };
       console.log("reqObj", reqObj);
       const response = await API.audiomarge(reqObj, header);
@@ -154,6 +157,7 @@ const MessagePlacePage = () => {
 
   const usermargitype = (e) => {
     setUserMargi(e.target.value);
+
     if (e.target.value === "1") {
       // songProcess();
     }
@@ -213,7 +217,7 @@ const MessagePlacePage = () => {
                     <select className="form-control" onChange={usermargitype}>
                       <option>--- Select ---</option>
                       <option value="1">Use Prerecorded</option>
-                      <option value="2">Record My Own</option>
+                      <option value="0">Record My Own</option>
                     </select>
                   </div>
                 </div>
@@ -264,7 +268,7 @@ const MessagePlacePage = () => {
                 </div>
                 {JSON.parse(localStorage.getItem("__template")).temtype ===
                 1 ? (
-                  <div className={userMargi === "2" ? "col-md-4" : "d-none"}>
+                  <div className={userMargi === "0" ? "col-md-4" : "d-none"}>
                     <h4 className="typeLabel">Middle </h4>
                     <p className="lablePara">
                       You can keep the pre-recorded message or record your very
