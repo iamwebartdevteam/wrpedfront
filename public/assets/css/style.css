@@ -8201,8 +8201,9 @@ input[type="range"]:active::-moz-range-thumb {
   text-align: left;
 }
 .messPlacement {
-  /* margin-top: 50px; */
   width: 100% !important;
+  border-radius: 0;
+  padding-bottom: 22px;
 }
 .headingC {
   font-size: 30px;
@@ -8546,13 +8547,13 @@ input[type="range"]:active::-moz-range-thumb {
   font-size: 25px;
 }
 .trashIcon i {
-  color: red;
+  color: #fff;
   font-size: 30px;
   cursor: pointer;
   margin-left: 15px;
 }
 .confrimorder {
-  margin-top: 25px;
+  
 }
 .mttop {
   margin-top: 3em;
@@ -8769,4 +8770,60 @@ input[type="range"]:active::-moz-range-thumb {
   margin-bottom: 1em;
   color: #b17a1f;
   font-size: 14px;
+}
+.rhap_container {
+  background-image: url(../images/player_bg.jpg);
+  background-size: cover;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: inherit;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #fff;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  /*left: 28%;
+  */
+  position: relative;
+  bottom: 4em;
+}
+.rhap_progress-bar-show-download {
+  background-color: #fff !important;
+}
+.rhap_progress-indicator {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  top: -8px;
+  background: #f50 !important;
+  border-radius: 50px;
+  box-shadow: rgb(255 255 255) 0 0 5px;
+}
+.rhap_container svg {
+  vertical-align: initial;
+  color: #fff !important;
+}
+.rhap_time {
+  color: #fff !important;
+}
+.rhap_volume-indicator {
+  background: #1c1c1c !important;
+}
+.rhap_progress-filled {
+  background-color: #f50 !important ;
+}
+.rightSide {
+  background: #9d806e;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: 4em;
+  left: -2px;
+  display: flex;
+  align-items: center;
 }

@@ -8,6 +8,8 @@ import * as API from "../api/index";
 import { dataBas } from "../commonData/staticData";
 import { IMG } from "../api/constant";
 import Stopwatch from "../components/Stopwatch";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 import {
   CountdownCircleTimer,
   useCountdown,
@@ -34,8 +36,6 @@ const MessagePlacePage = () => {
   const [voiceMessage, setVoiceMessage] = useState("");
   const [voiceMessageMiddil, setVoiceMessageMiddil] = useState("");
   const [voiceMessageEnd, setVoiceMessageEnd] = useState("");
-
-  console.log("userMargi", userMargi);
 
   // ? Start record
   const recorderControls = useAudioRecorder();
@@ -125,18 +125,21 @@ const MessagePlacePage = () => {
 
   const reloadAudio = () => {
     setIsPlay(!isPlay);
+    setVoiceMessage(false);
     let parentElement = document.getElementById("recordAudioss");
     parentElement.innerHTML = "";
   };
 
   const reloadAudiom = () => {
     setIsPlaym(!isPlaym);
+    setVoiceMessageMiddil(false);
     let middleElement = document.getElementById("recordAudiossM");
     middleElement.innerHTML = "";
   };
 
   const reloadAudioe = () => {
     setIsPlaye(!isPlaye);
+    setVoiceMessageEnd(false);
     let lastElement = document.getElementById("recordAudio");
     lastElement.innerHTML = "";
   };
@@ -232,16 +235,18 @@ const MessagePlacePage = () => {
                     Record your own personal greeting up to 12 seconds long
                   </p>
                   <div class="form-groupd">
-                    <AudioRecorder
-                      recorderControls={recorderControls}
-                      onRecordingComplete={addAudioElement}
-                      audioTrackConstraints={{
-                        noiseSuppression: true,
-                        echoCancellation: true,
-                      }}
-                      downloadOnSavePress={false}
-                      downloadFileExtension="mp3"
-                    />
+                    <div className={voiceMessage ? "d-none" : " form-groupd"}>
+                      <AudioRecorder
+                        recorderControls={recorderControls}
+                        onRecordingComplete={addAudioElement}
+                        audioTrackConstraints={{
+                          noiseSuppression: true,
+                          echoCancellation: true,
+                        }}
+                        downloadOnSavePress={false}
+                        downloadFileExtension="mp3"
+                      />
+                    </div>
                     {timerCount ? (
                       <button
                         id="stopbutton"
@@ -275,16 +280,18 @@ const MessagePlacePage = () => {
                       own message or story
                     </p>
                     <div class="form-groupd">
-                      <AudioRecorder
-                        recorderControls={recorderControlM}
-                        onRecordingComplete={addAudioElementM}
-                        audioTrackConstraints={{
-                          noiseSuppression: true,
-                          echoCancellation: true,
-                        }}
-                        downloadOnSavePress={false}
-                        downloadFileExtension="mp3"
-                      />
+                      <div className={voiceMessageMiddil ? "d-none" : ""}>
+                        <AudioRecorder
+                          recorderControls={recorderControlM}
+                          onRecordingComplete={addAudioElementM}
+                          audioTrackConstraints={{
+                            noiseSuppression: true,
+                            echoCancellation: true,
+                          }}
+                          downloadOnSavePress={false}
+                          downloadFileExtension="mp3"
+                        />
+                      </div>
                       <p
                         className="lablePara"
                         style={{ marginTop: 10, marginBottom: 0 }}
@@ -332,16 +339,18 @@ const MessagePlacePage = () => {
                     Your parting words up to 12 seconds long
                   </p>
                   <div class="form-groups">
-                    <AudioRecorder
-                      recorderControls={recorderControlss}
-                      onRecordingComplete={addAudioElements}
-                      audioTrackConstraints={{
-                        noiseSuppression: true,
-                        echoCancellation: true,
-                      }}
-                      downloadOnSavePress={false}
-                      downloadFileExtension="mp4"
-                    />
+                    <div className={voiceMessageEnd ? "d-none" : ""}>
+                      <AudioRecorder
+                        recorderControls={recorderControlss}
+                        onRecordingComplete={addAudioElements}
+                        audioTrackConstraints={{
+                          noiseSuppression: true,
+                          echoCancellation: true,
+                        }}
+                        downloadOnSavePress={false}
+                        downloadFileExtension="mp4"
+                      />
+                    </div>
                     <div id="recordAudio"></div>
                     <div className={isPlaye ? "" : "d-none"}>
                       <button
@@ -365,7 +374,7 @@ const MessagePlacePage = () => {
                   </button>
                 )}
 
-                {mainSong ? (
+                {/* {mainSong === false ? (
                   <>
                     <div className="align-items-center d-flex justify-content-center marginTopt mt-5">
                       <audio src={IMG + combineData.combined} controls></audio>
@@ -383,12 +392,42 @@ const MessagePlacePage = () => {
                   </>
                 ) : (
                   <></>
-                )}
+                )} */}
               </div>
             </div>
           </div>
         </div>
       </div>
+      {mainSong ? (
+        <>
+          <div className="row">
+            <div className="col-md-9">
+              <AudioPlayer
+                autoPlay={false}
+                src={IMG + combineData.combined}
+                onPlay={(e) => console.log("onPlay")}
+                // other props here
+              />
+            </div>
+            <div className="col-md-3">
+              <div className="rightSide">
+                <Link
+                  state={{ mainId: combineData.id }}
+                  className="ms_btn confrimorder"
+                  to="/order-details"
+                >
+                  Confirm Song
+                </Link>
+                <span className="trashIcon" onClick={combineDelete}>
+                  <i class="bi bi-trash3-fill"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };

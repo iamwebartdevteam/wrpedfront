@@ -22,9 +22,7 @@ const Container = () => {
                   dangerouslySetInnerHTML={{
                     __html: `
                   <video
-                  loop
-                  muted
-                  autoplay
+                  controls
                   playsinline
                   src=${video}
                   class="loaderVido"
