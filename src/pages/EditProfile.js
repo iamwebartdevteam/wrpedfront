@@ -1,35 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import * as API from "../api/index";
 import { toast } from "react-toastify";
 import { USASTATE } from "../commonData/staticData";
 import { MESSAGE } from "../schemas/Validation";
 const EditProfile = ({ formData, handalerChanges }) => {
+  const [errorName, setErrorName] = useState("");
+  const [errorCity, setErrorCity] = useState("");
+  const [errorState, setErrorState] = useState("");
+  const [errorCountry, setErrorCountry] = useState("");
+  console.log("formData.phone", formData.phone);
   const userdataUpdate = async () => {
     const header = localStorage.getItem("_tokenCode");
-    try {
-      const reqObj = {
-        name: formData.name,
-        city: formData.city,
-        state: formData.state,
-        country: formData.country,
-        address: formData.address,
-        address1: formData.address1,
-        id: localStorage.getItem("__userId"),
-      };
-      console.log("reqObj", reqObj);
-      const response = await API.getuser_update(reqObj, header);
-      console.log("response", response);
-      if (response.data.data.success === 1) {
-        MESSAGE(response.data.data.msg, 1);
-      }
-    } catch (error) {}
+    if (formData.name === "") {
+      setErrorName("This field is required");
+    } else if (formData.city === "") {
+      setErrorCity("This field is required");
+    } else if (formData.state === "") {
+      setErrorState("This field is required");
+    } else if (formData.country === "") {
+      setErrorCountry("This field is required");
+    }
+    if (
+      !formData.name ||
+      !formData.city ||
+      !formData.state ||
+      !formData.country
+    ) {
+    } else {
+      try {
+        const reqObj = {
+          name: formData.name,
+          city: formData.city,
+          state: formData.state,
+          country: formData.country,
+          address: formData.address,
+          address1: formData.address1,
+          phone: formData.phone,
+          id: localStorage.getItem("__userId"),
+        };
+        console.log("reqObj", reqObj);
+        const response = await API.getuser_update(reqObj, header);
+        console.log("response", response);
+        if (response.data.data.success === 1) {
+          MESSAGE(response.data.data.msg, 1);
+        }
+      } catch (error) {}
+    }
   };
   return (
     <>
       <div class="ms_profile_box">
         <div class="ms_pro_form">
           <div class="form-group">
-            <label>Name</label>
+            <label>
+              Name <span className="requed"> * </span>
+            </label>
             <input
               type="text"
               placeholder="First Name"
@@ -38,9 +63,12 @@ const EditProfile = ({ formData, handalerChanges }) => {
               onChange={handalerChanges}
               class="form-control"
             />
+            {errorName ? <p>{MESSAGE(errorName)}</p> : ""}
           </div>
           <div class="form-group">
-            <label>Email</label>
+            <label>
+              Email <span className="requed"> * </span>
+            </label>
             <input
               readOnly
               type="Email"
@@ -51,8 +79,20 @@ const EditProfile = ({ formData, handalerChanges }) => {
               onChange={handalerChanges}
             />
           </div>
+
           <div class="form-group">
-            <label>Address</label>
+            <label>Phone Number (optional)</label>
+            <input
+              type="text"
+              placeholder="Phone No"
+              class="form-control"
+              value={formData.phone}
+              name="phone"
+              onChange={handalerChanges}
+            />
+          </div>
+          <div class="form-group">
+            <label>Address (optional)</label>
             <input
               type="text"
               placeholder="Address"
@@ -63,7 +103,7 @@ const EditProfile = ({ formData, handalerChanges }) => {
             />
           </div>
           <div class="form-group">
-            <label>Address1</label>
+            <label>Address1 (optional)</label>
             <input
               type="text"
               placeholder="Address1"
@@ -74,22 +114,23 @@ const EditProfile = ({ formData, handalerChanges }) => {
             />
           </div>
           <div class="form-group">
-            <label>City</label>
-            <input
-              type="text"
-              value={formData.city}
+            <label>
+              Country <span className="requed"> * </span>
+            </label>
+            <select
+              value={formData.country}
               onChange={handalerChanges}
-              name="city"
-              placeholder="City"
+              name="country"
               class="form-control"
-            />
+            >
+              <option>--- Select ---</option>
+            </select>
+            <p>{errorCountry}</p>
           </div>
-          {/* <div class="form-group">
-            <label>Zip Code</label>
-            <input type="text" placeholder="Zip Code" class="form-control" />
-          </div> */}
           <div class="form-group">
-            <label>State</label>
+            <label>
+              State <span className="requed"> * </span>
+            </label>
             <select
               onChange={handalerChanges}
               value={formData.state}
@@ -101,17 +142,21 @@ const EditProfile = ({ formData, handalerChanges }) => {
                 <option>{item.name}</option>
               ))}
             </select>
+            <p>{errorState}</p>
           </div>
           <div class="form-group">
-            <label>Country</label>
-            <input
-              type="text"
-              placeholder="Country"
-              value={formData.country}
+            <label>
+              City <span className="requed"> * </span>
+            </label>
+            <select
+              value={formData.city}
               onChange={handalerChanges}
-              name="country"
+              name="city"
               class="form-control"
-            />
+            >
+              <option>--- Select ---</option>
+            </select>
+            <p>{errorCity}</p>
           </div>
           <div class="pro-form-btn text-center marger_top15">
             <button onClick={userdataUpdate} class="ms_btn">

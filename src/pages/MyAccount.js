@@ -13,6 +13,7 @@ const initialValues = {
   country: "",
   address: "",
   address1: "",
+  phone: "",
 };
 
 const MyAccount = ({ setIsLogin }) => {
