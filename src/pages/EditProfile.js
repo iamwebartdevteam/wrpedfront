@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as API from "../api/index";
 import { toast } from "react-toastify";
 import { USASTATE } from "../commonData/staticData";
@@ -8,7 +8,8 @@ const EditProfile = ({ formData, handalerChanges }) => {
   const [errorCity, setErrorCity] = useState("");
   const [errorState, setErrorState] = useState("");
   const [errorCountry, setErrorCountry] = useState("");
-  console.log("formData.phone", formData.phone);
+  const [allCountryData, setAllCountryData] = useState([]);
+
   const userdataUpdate = async () => {
     const header = localStorage.getItem("_tokenCode");
     if (formData.name === "") {
@@ -47,6 +48,17 @@ const EditProfile = ({ formData, handalerChanges }) => {
       } catch (error) {}
     }
   };
+
+  const countrydata = async () => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.allCountry(header);
+      setAllCountryData(response.data.data);
+    } catch (error) {}
+  };
+  useEffect(() => {
+    countrydata();
+  }, []);
   return (
     <>
       <div class="ms_profile_box">
@@ -124,6 +136,9 @@ const EditProfile = ({ formData, handalerChanges }) => {
               class="form-control"
             >
               <option>--- Select ---</option>
+              {allCountryData.map((item, index) => (
+                <option key={item.id}>{item.name}</option>
+              ))}
             </select>
             <p>{errorCountry}</p>
           </div>
