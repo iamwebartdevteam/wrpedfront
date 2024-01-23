@@ -367,3 +367,26 @@ export const allCountry = async (header) => {
     return e.response;
   }
 };
+export const allState = async (data, header) => {
+  try {
+    const url = c.URL + "/country/" + data + "/states";
+    console.log("url", url);
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const allCity = async (data, header) => {
+  try {
+    const url = c.URL + "/state/" + data + "/cities";
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

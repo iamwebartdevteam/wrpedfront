@@ -18,6 +18,9 @@ const initialValues = {
 
 const MyAccount = ({ setIsLogin }) => {
   const [formData, setFormData] = useState(initialValues);
+  const [allCountryData, setAllCountryData] = useState([]);
+  const [allStateData, setAllStateData] = useState([]);
+  const [allCityData, setAllCityData] = useState([]);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -30,14 +33,26 @@ const MyAccount = ({ setIsLogin }) => {
     }
   };
 
-  const handalerChanges = (e) => {
+  const handalerChanges = async (e) => {
     const { name, value } = e.target;
+    const header = localStorage.getItem("_tokenCode");
+    if (name === "country") {
+      const stateresponse = await API.allState(e.target.value, header);
+      setAllStateData(stateresponse.data.data);
+    }
+    if (name === "state") {
+      const cityresponse = await API.allCity(e.target.value, header);
+      setAllCityData(cityresponse.data.data);
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
   const userDataGetById = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
+      const cresponse = await API.allCountry(header);
+      setAllCountryData(cresponse.data.data);
       const musicBoxresponse = await API.getmusicBox(
         localStorage.getItem("__userId"),
         header
@@ -97,23 +112,12 @@ const MyAccount = ({ setIsLogin }) => {
                 <div class="col-md-6 text-end">
                   <div class="sclntwrk">
                     <ul>
-                      {/* <li>
-                        <a href="tel:+819 9876654352">
-                          <i class="bi bi-telephone"></i> +819 9876654352
-                        </a>
-                      </li> */}
                       <li>
                         <Link to={`mailto:${formData.email}`}>
                           <i class="fa fa-envelope-o" aria-hidden="true"></i>{" "}
                           {formData.email}
                         </Link>
                       </li>
-                      {/* <li>
-                        <a href="#">
-                          <i class="fa fa-twitter" aria-hidden="true"></i>
-                          @Lisa_Smith
-                        </a>
-                      </li> */}
                     </ul>
                   </div>
                 </div>
@@ -207,6 +211,9 @@ const MyAccount = ({ setIsLogin }) => {
                         <EditProfile
                           handalerChanges={handalerChanges}
                           formData={formData}
+                          allCountryData={allCountryData}
+                          allStateData={allStateData}
+                          allCityData={allCityData}
                         />
                       </div>
                       <div

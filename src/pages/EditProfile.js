@@ -3,12 +3,17 @@ import * as API from "../api/index";
 import { toast } from "react-toastify";
 import { USASTATE } from "../commonData/staticData";
 import { MESSAGE } from "../schemas/Validation";
-const EditProfile = ({ formData, handalerChanges }) => {
+const EditProfile = ({
+  formData,
+  handalerChanges,
+  allCityData,
+  allCountryData,
+  allStateData,
+}) => {
   const [errorName, setErrorName] = useState("");
   const [errorCity, setErrorCity] = useState("");
   const [errorState, setErrorState] = useState("");
   const [errorCountry, setErrorCountry] = useState("");
-  const [allCountryData, setAllCountryData] = useState([]);
 
   const userdataUpdate = async () => {
     const header = localStorage.getItem("_tokenCode");
@@ -52,8 +57,6 @@ const EditProfile = ({ formData, handalerChanges }) => {
   const countrydata = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.allCountry(header);
-      setAllCountryData(response.data.data);
     } catch (error) {}
   };
   useEffect(() => {
@@ -137,7 +140,9 @@ const EditProfile = ({ formData, handalerChanges }) => {
             >
               <option>--- Select ---</option>
               {allCountryData.map((item, index) => (
-                <option key={item.id}>{item.name}</option>
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
               ))}
             </select>
             <p>{errorCountry}</p>
@@ -153,8 +158,8 @@ const EditProfile = ({ formData, handalerChanges }) => {
               class="form-control"
             >
               <option>--- Select ---</option>
-              {USASTATE.map((item, index) => (
-                <option>{item.name}</option>
+              {allStateData.map((item, index) => (
+                <option value={item.id}>{item.name}</option>
               ))}
             </select>
             <p>{errorState}</p>
@@ -170,6 +175,9 @@ const EditProfile = ({ formData, handalerChanges }) => {
               class="form-control"
             >
               <option>--- Select ---</option>
+              {allCityData.map((item, index) => (
+                <option value={item.id}>{item.name}</option>
+              ))}
             </select>
             <p>{errorCity}</p>
           </div>

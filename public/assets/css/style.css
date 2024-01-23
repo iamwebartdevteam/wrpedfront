@@ -8831,3 +8831,7 @@ input[type="range"]:active::-moz-range-thumb {
   font-size: 19px;
   line-height: 15px;
 }
+.audio-recorder-mic {
+  transform: translateY(-1000px);
+  filter: drop-shadow(0px 1000px 0 #d04848);
+}
