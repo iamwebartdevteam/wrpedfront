@@ -22,7 +22,7 @@ const MyAccount = ({ setIsLogin }) => {
   const [allStateData, setAllStateData] = useState([]);
   const [allCityData, setAllCityData] = useState([]);
   const navigate = useNavigate();
-
+  const [getUserData, setGetUserData] = useState("");
   const logout = () => {
     localStorage.removeItem("_tokenCode");
     localStorage.removeItem("isLogin");
@@ -64,6 +64,7 @@ const MyAccount = ({ setIsLogin }) => {
       );
       console.log("response", response);
       setFormData(response.data.data);
+      setGetUserData(response.data.data);
       if (response.data.is_login === false) {
         localStorage.removeItem("_tokenCode");
         localStorage.removeItem("isLogin");
@@ -186,6 +187,7 @@ const MyAccount = ({ setIsLogin }) => {
                           allCountryData={allCountryData}
                           allStateData={allStateData}
                           allCityData={allCityData}
+                          getUserData={getUserData}
                         />
                       </div>
                       <div

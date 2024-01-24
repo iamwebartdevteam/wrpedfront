@@ -9,6 +9,7 @@ const EditProfile = ({
   allCityData,
   allCountryData,
   allStateData,
+  getUserData,
 }) => {
   const [errorName, setErrorName] = useState("");
   const [errorCity, setErrorCity] = useState("");
@@ -131,6 +132,11 @@ const EditProfile = ({
           <div class="form-group">
             <label>
               Country <span className="requed"> * </span>
+              {getUserData.country ? (
+                <span className="text-light"> {getUserData.country}</span>
+              ) : (
+                ""
+              )}
             </label>
             <select
               value={formData.country}
@@ -145,11 +151,16 @@ const EditProfile = ({
                 </option>
               ))}
             </select>
-            <p>{errorCountry}</p>
+            <p>{errorCountry ? MESSAGE(errorCountry) : ""}</p>
           </div>
           <div class="form-group">
             <label>
               State <span className="requed"> * </span>
+              {getUserData.state ? (
+                <span className="text-light"> {getUserData.state}</span>
+              ) : (
+                ""
+              )}
             </label>
             <select
               onChange={handalerChanges}
@@ -162,11 +173,16 @@ const EditProfile = ({
                 <option value={item.id}>{item.name}</option>
               ))}
             </select>
-            <p>{errorState}</p>
+            <p>{errorState ? MESSAGE(errorState) : ""}</p>
           </div>
           <div class="form-group">
             <label>
               City <span className="requed"> * </span>
+              {getUserData.city ? (
+                <span className="text-light"> {getUserData.city}</span>
+              ) : (
+                ""
+              )}
             </label>
             <select
               value={formData.city}
@@ -179,7 +195,7 @@ const EditProfile = ({
                 <option value={item.id}>{item.name}</option>
               ))}
             </select>
-            <p>{errorCity}</p>
+            <p>{errorCity ? MESSAGE(errorCity) : ""}</p>
           </div>
           <div class="pro-form-btn text-center marger_top15">
             <button onClick={userdataUpdate} class="ms_btn">

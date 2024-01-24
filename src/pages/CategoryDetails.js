@@ -163,21 +163,6 @@ const CategoryDetails = () => {
                   <li class="nav-item" role="presentation">
                     <button
                       class="nav-link"
-                      id="pills-profile-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-profile"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-profile"
-                      aria-selected="false"
-                      onClick={() => get_categoryList("2", "Genre")}
-                    >
-                      Genre
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
                       id="pills-contact-tab"
                       data-bs-toggle="pill"
                       data-bs-target="#pills-contact"
@@ -190,6 +175,22 @@ const CategoryDetails = () => {
                       Occasion
                     </button>
                   </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-profile-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-profile"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-profile"
+                      aria-selected="false"
+                      onClick={() => get_categoryList("2", "Genre")}
+                    >
+                      Genre
+                    </button>
+                  </li>
+
                   <li class="nav-item" role="presentation">
                     <button
                       class="nav-link"
@@ -221,13 +222,24 @@ const CategoryDetails = () => {
             </div>
 
             <div class="album_inner_list songList">
-              <div class="album_list_wrapper">
+              <div
+                class={
+                  songColm === "1" || songColm === "2" || songColm === "3"
+                    ? "album_list_wrapper tablewidth"
+                    : "album_list_wrapper"
+                }
+              >
                 <ul class="album_list_name">
                   <li>ID</li>
                   <li>Song Title</li>
-                  <li>Occasion </li>
-                  <li> Genres</li>
-                  <li>Moods</li>
+                  {songColm === "2" || songColm === "3" ? (
+                    ""
+                  ) : (
+                    <li>Occasion </li>
+                  )}
+                  {songColm === "1" || songColm === "3" ? "" : <li>Genres</li>}
+                  {songColm === "2" || songColm === "1" ? "" : <li>Moods</li>}
+
                   <li>Amount </li>
                   <li>Action</li>
                 </ul>
@@ -266,36 +278,49 @@ const CategoryDetails = () => {
                       >
                         <Link to="javascript:void(0)">{item.name}</Link>
                       </li>
-                      <li
-                        className={
-                          musicIndex === item.id ? "songActive" : "calll"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        <Link to="javascript:void(0)">
-                          {item.occasion === "" ? "N/A" : item.occasion}
-                        </Link>
-                      </li>
-                      <li
-                        className={
-                          musicIndex === item.id ? "songActive" : "calll"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        <Link to="javascript:void(0)">
-                          {item.genre === "" ? "N/A" : item.genre}
-                        </Link>
-                      </li>
-                      <li
-                        className={
-                          musicIndex === item.id ? "songActive" : "calll"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        <Link to="javascript:void(0)">
-                          {item.mood === "" ? "N/A" : item.mood}
-                        </Link>
-                      </li>
+                      {songColm === "2" || songColm === "3" ? (
+                        ""
+                      ) : (
+                        <li
+                          className={
+                            musicIndex === item.id ? "songActive" : "calll"
+                          }
+                          onClick={() => musiaChoose(index, item.id)}
+                        >
+                          <Link to="javascript:void(0)">
+                            {item.occasion === "" ? "N/A" : item.occasion}
+                          </Link>
+                        </li>
+                      )}
+                      {songColm === "1" || songColm === "3" ? (
+                        ""
+                      ) : (
+                        <li
+                          className={
+                            musicIndex === item.id ? "songActive" : "calll"
+                          }
+                          onClick={() => musiaChoose(index, item.id)}
+                        >
+                          <Link to="javascript:void(0)">
+                            {item.genre === "" ? "N/A" : item.genre}
+                          </Link>
+                        </li>
+                      )}
+                      {songColm === "1" || songColm === "2" ? (
+                        ""
+                      ) : (
+                        <li
+                          className={
+                            musicIndex === item.id ? "songActive" : "calll"
+                          }
+                          onClick={() => musiaChoose(index, item.id)}
+                        >
+                          <Link to="javascript:void(0)">
+                            {item.mood === "" ? "N/A" : item.mood}
+                          </Link>
+                        </li>
+                      )}
+
                       <li
                         className={
                           musicIndex === item.id ? "songActive" : "calll"
