@@ -16,6 +16,7 @@ const CategoryDetails = () => {
   const [currentTrack, setCurrentTrack] = useState(songData[trackIndex]);
 
   const [cataGoriData, setCataGoriData] = useState("");
+  const [songColm, setSongColm] = useState("");
 
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
@@ -73,6 +74,7 @@ const CategoryDetails = () => {
   const get_categoryList = async (data, title) => {
     const header = localStorage.getItem("_tokenCode");
     setCataGoriData(title);
+    setSongColm(data);
     try {
       const response = await API.get_subCategory(data, header);
       console.log("get_categoryList", response);

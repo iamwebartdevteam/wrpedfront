@@ -126,20 +126,6 @@ const MyAccount = ({ setIsLogin }) => {
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                       <li class="nav-item" role="presentation">
                         <button
-                          class="nav-link"
-                          id="dashboard-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#dashboard"
-                          type="button"
-                          role="tab"
-                          aria-controls="dashboard"
-                          aria-selected="true"
-                        >
-                          Dashboard
-                        </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button
                           class="nav-link active"
                           id="profile-tab"
                           data-bs-toggle="tab"
@@ -178,20 +164,6 @@ const MyAccount = ({ setIsLogin }) => {
                           aria-selected="false"
                         >
                           Change Password
-                        </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link"
-                          id="songs-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#songs"
-                          type="button"
-                          role="tab"
-                          aria-controls="songs"
-                          aria-selected="false"
-                        >
-                          Music Box
                         </button>
                       </li>
                     </ul>
