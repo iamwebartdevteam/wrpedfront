@@ -390,3 +390,15 @@ export const allCity = async (data, header) => {
     return e.response;
   }
 };
+export const orderHistroy = async (data, header) => {
+  try {
+    const url = c.URL + "/getorderhistory/" + data;
+    console.log("url", url);
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

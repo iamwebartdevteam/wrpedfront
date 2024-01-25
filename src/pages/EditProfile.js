@@ -10,6 +10,10 @@ const EditProfile = ({
   allCountryData,
   allStateData,
   getUserData,
+  cityData,
+  stateData,
+  countryData,
+  userDataGetById,
 }) => {
   const [errorName, setErrorName] = useState("");
   const [errorCity, setErrorCity] = useState("");
@@ -37,9 +41,9 @@ const EditProfile = ({
       try {
         const reqObj = {
           name: formData.name,
-          city: formData.city,
-          state: formData.state,
-          country: formData.country,
+          city: typeof cityData === "number" ? cityData : "",
+          state: typeof stateData === "number" ? stateData : "",
+          country: typeof countryData === "number" ? countryData : "",
           address: formData.address,
           address1: formData.address1,
           phone: formData.phone,
@@ -49,6 +53,7 @@ const EditProfile = ({
         const response = await API.getuser_update(reqObj, header);
         console.log("response", response);
         if (response.data.data.success === 1) {
+          userDataGetById();
           MESSAGE(response.data.data.msg, 1);
         }
       } catch (error) {}

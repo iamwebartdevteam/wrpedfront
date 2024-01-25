@@ -5,6 +5,7 @@ import * as API from "../api/index";
 import ChangesPassword from "./ChangesPassword";
 import { Link } from "react-router-dom";
 import DownloadMusic from "./DownloadMusic";
+import { IMG } from "../api/constant";
 const initialValues = {
   name: "",
   email: "",
@@ -21,8 +22,15 @@ const MyAccount = ({ setIsLogin }) => {
   const [allCountryData, setAllCountryData] = useState([]);
   const [allStateData, setAllStateData] = useState([]);
   const [allCityData, setAllCityData] = useState([]);
+
+  const [orderData, setOrderData] = useState([]);
+
   const navigate = useNavigate();
   const [getUserData, setGetUserData] = useState("");
+  const [countryData, setCountryData] = useState("");
+  const [stateData, setStateData] = useState("");
+  const [cityData, setCityData] = useState("");
+
   const logout = () => {
     localStorage.removeItem("_tokenCode");
     localStorage.removeItem("isLogin");
@@ -37,12 +45,18 @@ const MyAccount = ({ setIsLogin }) => {
     const { name, value } = e.target;
     const header = localStorage.getItem("_tokenCode");
     if (name === "country") {
+      setCountryData(parseInt(e.target.value));
       const stateresponse = await API.allState(e.target.value, header);
       setAllStateData(stateresponse.data.data);
     }
     if (name === "state") {
+      setStateData(parseInt(e.target.value));
       const cityresponse = await API.allCity(e.target.value, header);
       setAllCityData(cityresponse.data.data);
+    }
+
+    if (name === "city") {
+      setCityData(parseInt(e.target.value));
     }
 
     setFormData({ ...formData, [name]: value });
@@ -53,10 +67,11 @@ const MyAccount = ({ setIsLogin }) => {
     try {
       const cresponse = await API.allCountry(header);
       setAllCountryData(cresponse.data.data);
-      const musicBoxresponse = await API.getmusicBox(
+      const musicBoxresponse = await API.orderHistroy(
         localStorage.getItem("__userId"),
         header
       );
+      setOrderData(musicBoxresponse.data.data);
       console.log("musicBoxresponse", musicBoxresponse);
       const response = await API.getuserDataID(
         localStorage.getItem("__userId"),
@@ -188,6 +203,10 @@ const MyAccount = ({ setIsLogin }) => {
                           allStateData={allStateData}
                           allCityData={allCityData}
                           getUserData={getUserData}
+                          countryData={countryData}
+                          stateData={stateData}
+                          cityData={cityData}
+                          userDataGetById={userDataGetById}
                         />
                       </div>
                       <div
@@ -201,135 +220,38 @@ const MyAccount = ({ setIsLogin }) => {
                             <ul class="album_list_name">
                               <li>ID</li>
                               <li>Song Title</li>
-                              <li>Artist</li>
                               <li>Duration</li>
-                              <li>Action</li>
+                              <li>Download</li>
+                              <li>Share</li>
                             </ul>
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <span class="play_no">01</span>
-                                  <span class="play_hover"></span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">Bloodlust</a>
-                              </li>
-                              <li>
-                                <a href="#">Ava Cornish &amp; Brian Hill</a>
-                              </li>
-                              <li>
-                                <a href="#">5:26</a>
-                              </li>
-                              <li>
-                                <a href="#" class="cart_btn">
-                                  <i
-                                    class="fa fa-shopping-cart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                              </li>
-                            </ul>
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <span class="play_no">02</span>
-                                  <span class="play_hover"></span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">Desired Games</a>
-                              </li>
-                              <li>
-                                <a href="#">Ava Cornish &amp; Brian Hill</a>
-                              </li>
-                              <li>
-                                <a href="#">5:26</a>
-                              </li>
-                              <li>
-                                <a href="#" class="cart_btn">
-                                  <i
-                                    class="fa fa-shopping-cart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                              </li>
-                            </ul>
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <span class="play_no">03</span>
-                                  <span class="play_hover"></span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">Until I Met You</a>
-                              </li>
-                              <li>
-                                <a href="#">Ava Cornish &amp; Brian Hill</a>
-                              </li>
-                              <li>
-                                <a href="#">5:26</a>
-                              </li>
-                              <li>
-                                <a href="#" class="cart_btn">
-                                  <i
-                                    class="fa fa-shopping-cart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                              </li>
-                            </ul>
-                            <ul class="play_active_song">
-                              <li>
-                                <a href="#">
-                                  <span class="play_no">04</span>
-                                  <span class="play_hover"></span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">Dark Alley Acoustic</a>
-                              </li>
-                              <li>
-                                <a href="#">Ava Cornish &amp; Brian Hill</a>
-                              </li>
-                              <li>
-                                <a href="#">5:26</a>
-                              </li>
-                              <li>
-                                <a href="#" class="cart_btn">
-                                  <i
-                                    class="fa fa-shopping-cart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                              </li>
-                            </ul>
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <span class="play_no">05</span>
-                                  <span class="play_hover"></span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">Cloud nine</a>
-                              </li>
-                              <li>
-                                <a href="#">Ava Cornish &amp; Brian Hill</a>
-                              </li>
-                              <li>
-                                <a href="#">5:26</a>
-                              </li>
-                              <li>
-                                <a href="#" class="cart_btn">
-                                  <i
-                                    class="fa fa-shopping-cart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                              </li>
-                            </ul>
+                            {orderData.map((item, index) => (
+                              <ul>
+                                <li>
+                                  <a href="#">
+                                    <span class="play_now">{index + 1}</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">{item.songname}</a>
+                                </li>
+
+                                <li>
+                                  <a href="#">{item.combined_duration}</a>
+                                </li>
+                                <li>
+                                  <span
+                                    onClick={() => {
+                                      navigator.clipboard.writeText(
+                                        IMG + item.combined
+                                      );
+                                    }}
+                                    class="cart_btn"
+                                  >
+                                    <i class="bi bi-clipboard-fill"></i>
+                                  </span>
+                                </li>
+                              </ul>
+                            ))}
                           </div>
                         </div>
                       </div>

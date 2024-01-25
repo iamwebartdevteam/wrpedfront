@@ -230,7 +230,7 @@ const CategoryDetails = () => {
                 }
               >
                 <ul class="album_list_name">
-                  <li>ID</li>
+                  <li className="text-center">ID</li>
                   <li>Song Title</li>
                   {songColm === "2" || songColm === "3" ? (
                     ""
@@ -241,7 +241,7 @@ const CategoryDetails = () => {
                   {songColm === "2" || songColm === "1" ? "" : <li>Moods</li>}
 
                   <li>Amount </li>
-                  <li>Action</li>
+                  <li>Select</li>
                 </ul>
                 {songData === "" ||
                 songData.length === 0 ||
@@ -252,7 +252,9 @@ const CategoryDetails = () => {
                     <ul>
                       <li
                         className={
-                          musicIndex === item.id ? "songActive" : "calll"
+                          musicIndex === item.id
+                            ? "songActive text-center"
+                            : "calll text-center"
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >

@@ -2978,7 +2978,6 @@ a.ms_btn.play_btn.btn_pause span.play_all {
   text-transform: capitalize;
   top: auto;
   right: auto;
-  text-align: center;
 }
 .sngover {
   overflow-x: scroll;
@@ -3001,6 +3000,7 @@ a.ms_btn.play_btn.btn_pause span.play_all {
   margin-top: 10px;
   display: inline-block;
   position: relative;
+  text-align: left;
 }
 .album_list_wrapper > ul:hover > li > a {
   color: #dc9821;
@@ -7613,6 +7613,7 @@ ul.accordion p {
 
 .maindashboardbdy .album_list_wrapper > ul:hover > li > a.cart_btn {
   color: #1e1e1e;
+  cursor: pointer;
 }
 
 .maindashboardbdy .album_list_wrapper > ul > li {
@@ -7656,10 +7657,13 @@ ul.accordion p {
   width: 30px;
   height: 30px;
   text-align: center;
-  display: inline-block;
   background: linear-gradient(45deg, #cd8200 0%, #ffca6e 100%);
   border-radius: 50%;
   line-height: 30px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .cart_btn:hover {
@@ -8837,4 +8841,7 @@ input[type="range"]:active::-moz-range-thumb {
 } */
 .tablewidth ul li {
   width: 20% !important;
+}
+.history_tab ul li {
+  text-align: left;
 }
