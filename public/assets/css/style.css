@@ -7664,6 +7664,7 @@ ul.accordion p {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-top: 1em;
 }
 
 .cart_btn:hover {

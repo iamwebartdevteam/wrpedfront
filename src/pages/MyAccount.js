@@ -6,6 +6,8 @@ import ChangesPassword from "./ChangesPassword";
 import { Link } from "react-router-dom";
 import DownloadMusic from "./DownloadMusic";
 import { IMG } from "../api/constant";
+import DownloadLink from "react-download-link";
+import { MESSAGE } from "../schemas/Validation";
 const initialValues = {
   name: "",
   email: "",
@@ -90,6 +92,12 @@ const MyAccount = ({ setIsLogin }) => {
       }
     } catch (error) {}
   };
+
+  const copyfile = (data) => {
+    MESSAGE("Copied link", 1);
+    navigator.clipboard.writeText(IMG + data);
+  };
+
   useEffect(() => {
     userDataGetById();
   }, []);
@@ -116,10 +124,10 @@ const MyAccount = ({ setIsLogin }) => {
               <div class="row">
                 <div class="col-md-6">
                   <h1>{formData.name}</h1>
-                  <p>
+                  {/* <p>
                     <i class="bi bi-globe"></i> {formData.city},{formData.state}{" "}
                     ,{formData.country}
-                  </p>
+                  </p> */}
                   {/* <h6>
                     <i class="bi bi-person-fill"></i> Lead Hip Hop Singer at
                     Lorem Ipsum
@@ -221,7 +229,7 @@ const MyAccount = ({ setIsLogin }) => {
                               <li>ID</li>
                               <li>Song Title</li>
                               <li>Duration</li>
-                              <li>Download</li>
+                              {/* <li>Download</li> */}
                               <li>Share</li>
                             </ul>
                             {orderData.map((item, index) => (
@@ -238,13 +246,17 @@ const MyAccount = ({ setIsLogin }) => {
                                 <li>
                                   <a href="#">{item.combined_duration}</a>
                                 </li>
+                                {/* <li>
+                                  <a href={IMG + item.combined} download>
+                                    ddsds
+                                  </a>
+                                  <span class="cart_btn">
+                                    <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                  </span>
+                                </li> */}
                                 <li>
                                   <span
-                                    onClick={() => {
-                                      navigator.clipboard.writeText(
-                                        IMG + item.combined
-                                      );
-                                    }}
+                                    onClick={() => copyfile(item.combined)}
                                     class="cart_btn"
                                   >
                                     <i class="bi bi-clipboard-fill"></i>
