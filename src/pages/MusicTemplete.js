@@ -92,7 +92,7 @@ const MusicTemplete = () => {
             </div>
 
             <div class="album_inner_list">
-              <div class="album_list_wrapper">
+              <div class="album_list_wrapper mobileList">
                 <ul class="album_list_name">
                   <li>ID</li>
                   <li>Sample Type</li>

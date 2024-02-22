@@ -6001,6 +6001,16 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .album_list_wrapper > ul li.text-center {
     text-align: left !important;
+    width: 4%;
+  }
+  .ms_logo_open img {
+    width: 40%;
+  }
+  .mobileList ul li:first-child {
+    width: 5%;
+  }
+  .floating .count {
+    display: flex !important;
   }
   .album_single_img {
     width: 100%;
