@@ -29,7 +29,12 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
           <div class="ms_nav_wrapper">
             <ul>
               <li>
-                <NavLink to="/" class="active" title="Discover">
+                <NavLink
+                  to="/"
+                  class="active"
+                  title="Discover"
+                  onClick={sidebarOpen}
+                >
                   <span class="nav_icon">
                     <span class="icon icon_discover"></span>
                   </span>
@@ -37,7 +42,7 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/song-list" title="Songs">
+                <NavLink to="/song-list" title="Songs" onClick={sidebarOpen}>
                   <span class="nav_icon">
                     <i class="bi bi-music-note"></i>
                   </span>
@@ -53,7 +58,11 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                 </NavLink>
               </li> */}
               <li>
-                <NavLink to="/wrapin-music" title="Wrap In Music">
+                <NavLink
+                  to="/wrapin-music"
+                  title="Wrap In Music"
+                  onClick={sidebarOpen}
+                >
                   <span class="nav_icon">
                     <i class="bi bi-music-note-list"></i>
                   </span>
@@ -61,7 +70,11 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/testimonials" title="Testimonials">
+                <NavLink
+                  to="/testimonials"
+                  title="Testimonials"
+                  onClick={sidebarOpen}
+                >
                   <span class="nav_icon">
                     <i class="bi bi-people"></i>
                   </span>
@@ -69,7 +82,11 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact-us" title="Contact Us">
+                <NavLink
+                  to="/contact-us"
+                  title="Contact Us"
+                  onClick={sidebarOpen}
+                >
                   <span class="nav_icon">
                     <i class="bi bi-telephone"></i>
                   </span>
@@ -80,6 +97,7 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                 <NavLink
                   to={isLogin ? "/my-account" : "/login"}
                   title="Register/Login"
+                  onClick={sidebarOpen}
                 >
                   <span class="nav_icon">
                     <i class="bi bi-person-circle"></i>
@@ -88,7 +106,7 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                 </NavLink>
               </li>
               <li>
-                <div className="floating">
+                <div className="floating" onClick={sidebarOpen}>
                   <Link to="/cart">
                     <i class="bi bi-cart3"></i>{" "}
                     <span class="nav_text">Cart</span>

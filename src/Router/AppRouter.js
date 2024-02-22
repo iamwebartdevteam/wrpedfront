@@ -30,7 +30,7 @@ const AppRouter = () => {
   const [cartItem, setCartItem] = useState([]);
   const [totalAmount, setTotalAmount] = useState("");
 
-  const [trackData, setTrackData] = useState([]);
+  const [trackData, setTrackData] = useState("");
   const [isLogin, setIsLogin] = useState(
     JSON.parse(localStorage.getItem("isLogin"))
   );
@@ -54,7 +54,8 @@ const AppRouter = () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.aboutData(header);
-
+      console.log("response", response);
+      setTrackData(response.data.data);
       const cartresponse = await API.getCartList(
         localStorage.getItem("__userId"),
         header
@@ -62,7 +63,6 @@ const AppRouter = () => {
       console.log("cartresponse", cartresponse);
       setTotalAmount(cartresponse.data.total_amount);
       setCartItem(cartresponse.data.data);
-      setTrackData(response.data.data);
     } catch (error) {}
   };
 
@@ -160,7 +160,10 @@ const AppRouter = () => {
                     path="/songs/sub-category"
                     element={<Category setIsLogin={setIsLogin} />}
                   />
-                  <Route path="/wrapin-music" element={<WrapInMusic />} />
+                  <Route
+                    path="/wrapin-music"
+                    element={<WrapInMusic trackData={trackData} />}
+                  />
                   <Route path="/testimonials" element={<Testimonialss />} />
                   <Route path="/contact-us" element={<Contact />} />
 

@@ -63,6 +63,7 @@ export const resend_otp = async (data) => {
 export const get_subCategory = async (data, header) => {
   try {
     const url = c.GETSUBCATAGORY + "/" + data;
+    console.log("url", url);
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
@@ -289,6 +290,7 @@ export const payment_check = async (data, header) => {
 export const aboutData = async (header) => {
   try {
     const url = c.URL + "/aboutus";
+    console.log("url", url);
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });

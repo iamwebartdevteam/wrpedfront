@@ -24,21 +24,25 @@ const CategoryDetails = () => {
     setCurrentTrack(songData[index]);
     setTrackIndex(index);
   };
-
+  console.log("songData", songData);
   // ? First time data get api
   const getVatagoriy_details = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const Allresponse = await API.get_subCategory("0", header);
-      console.log("get_categoryList", Allresponse);
+      console.log("get_categoryList000", Allresponse);
+      if (Allresponse.data.data.success === 1) {
+        setSongData(Allresponse.data.data.music);
+        setCurrentTrack(Allresponse.data.data.music[trackIndex]);
+      }
       const response = await API.subCategoryIdDetails(
         localStorage.getItem("subCataId"),
         header
       );
-      setCurrentTrack(Allresponse.data.data.music[trackIndex]);
-      console.log("response", response);
+      // setCurrentTrack(Allresponse.data.data.music[trackIndex]);
+
       localStorage.setItem("_cataGorid", response.data.data.category_id);
-      setSongData(Allresponse.data.data.music);
+      // setSongData(Allresponse.data.data.music);
       // setCataGoriData(response.data.data);
     } catch (error) {}
   };
@@ -89,8 +93,8 @@ const CategoryDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    //get_categoryList("2");
-    getVatagoriy_details();
+    // get_categoryList("0");
+    getVatagoriy_details("0");
   }, []);
 
   return (

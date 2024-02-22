@@ -5644,7 +5644,7 @@ body.loaded.modal-open .ms_player_wrapper {
     padding-top: 40px;
   }
   .ms_footer_inner {
-    padding: 0px 30px 0px 8px;
+    padding: 0px 30px 0px 8px !important;
   }
   .ms_profile .ms_top_right {
     text-align: center;
@@ -5762,9 +5762,12 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_content_wrapper.padder_top80 {
     padding-top: 50px !important;
+    margin-left: 0;
   }
   .ms_nav_close i {
     color: #fff;
+    margin-top: 15px;
+    right: 20px;
   }
   .ms_nav_close i:hover {
     color: #cd8200;
@@ -5829,7 +5832,7 @@ body.loaded.modal-open .ms_player_wrapper {
     text-align: left;
   }
   .ms_header {
-    left: 0px;
+    left: 0px !important;
   }
   .ms_content_wrapper {
     margin-left: 0;
@@ -5934,6 +5937,19 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_genres_wrapper {
     margin-right: 15px;
+    margin-top: 3em !important;
+  }
+  .ms_genres_wrapper .nav {
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: 1em !important;
+  }
+  .cataTeb .nav-pills .nav-link {
+    width: 5em !important;
+    height: 2em !important;
+    margin: 0 7px !important;
+    line-height: 22px !important;
   }
   .jp-progress-container.flex-item {
     max-width: 20%;
@@ -5995,7 +6011,6 @@ body.loaded.modal-open .ms_player_wrapper {
     padding-top: 20px;
   }
   .ms_btn {
-    width: 85px;
     margin-left: 5px;
   }
   .ms_lang_popup .modal-dialog {
@@ -6168,6 +6183,25 @@ body.loaded.modal-open .ms_player_wrapper {
     -ms-flex-preferred-size: 150px;
     flex-basis: 150px;
     top: 6px;
+    justify-content: center;
+  }
+  .soundOr svg {
+    font-size: 23px !important;
+  }
+  .headingC {
+    font-size: 17px !important;
+  }
+  .countDowns p {
+    width: 100% !important;
+    font-size: 12px;
+  }
+  .volume {
+    right: -27px !important;
+    display: block !important;
+  }
+  .soundOr {
+    width: 40px !important;
+    height: 40px !important;
   }
   .ms_main_wrapper.ms_profile .ms_header {
     padding: 10px 30px 10px;
