@@ -10,7 +10,6 @@ import CommonCata from "../components/CommonCata";
 import CataDetails from "./CataDetails";
 const MusicTemplete = () => {
   const location = useLocation();
-  console.log("location", location.state.songId);
 
   const [musicIndex, setMusicIndex] = useState("");
   const [songData, setSongData] = useState([]);
@@ -31,7 +30,7 @@ const MusicTemplete = () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.songWiseTempleteList(
-        location.state.songId,
+        JSON.parse(localStorage.getItem("__musicData")).song_id,
         header
       );
       console.log("responseTemplete", response);
@@ -57,6 +56,10 @@ const MusicTemplete = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(
+      "gssg",
+      JSON.parse(localStorage.getItem("__musicData")).song_id
+    );
     getVatagoriy_details();
   }, []);
 
@@ -173,9 +176,9 @@ const MusicTemplete = () => {
         </div>
 
         <div class="ms_view_more padder_bottom20">
-          <a href="#" class="ms_btn">
-            view more
-          </a>
+          <Link className="ms_btn" to="/song-list">
+            Back
+          </Link>
         </div>
       </div>
       {songData.length === 0 ? (

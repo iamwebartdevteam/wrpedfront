@@ -26,7 +26,7 @@ const MessagePlacePage = () => {
   const [isPlaym, setIsPlaym] = useState(false);
   const [isPlaye, setIsPlaye] = useState(false);
 
-  const [userMargi, setUserMargi] = useState("");
+  const [userMargi, setUserMargi] = useState("1");
 
   const [combineData, setCombineData] = useState("");
 
@@ -188,6 +188,13 @@ const MessagePlacePage = () => {
           <div class="ms_profile_box messPlacement">
             <div class="ms_pro_form">
               <div className="countDowns">
+                <div className="row">
+                  <div className="col-md-2">
+                    <Link className="ms_btn" to="/song-details">
+                      Back
+                    </Link>
+                  </div>
+                </div>
                 {/* <CountdownCircleTimer
                   size={70}
                   isPlaying={recorderControls.isRecording}
@@ -218,7 +225,6 @@ const MessagePlacePage = () => {
                 <div className="row justify-content-center typeofPlase">
                   <div className="col-md-5">
                     <select className="form-control" onChange={usermargitype}>
-                      <option>--- Select ---</option>
                       <option value="1">Use Prerecorded</option>
                       <option value="0">Record My Own</option>
                     </select>
@@ -260,7 +266,11 @@ const MessagePlacePage = () => {
 
                     <div id="recordAudioss"></div>
 
-                    <div className={isPlay ? "" : "d-none"}>
+                    <div
+                      className={
+                        isPlay ? "d-flex justify-content-center" : "d-none"
+                      }
+                    >
                       <button
                         className="recmp"
                         id="removeSourceAttribute"
@@ -318,7 +328,11 @@ const MessagePlacePage = () => {
                         )}{" "}
                       </p>
                       <div id="recordAudiossM"></div>
-                      <div className={isPlaym ? "" : "d-none"}>
+                      <div
+                        className={
+                          isPlaym ? "d-flex justify-content-center" : "d-none"
+                        }
+                      >
                         <button
                           className="recmp"
                           id="removeSourceAttribute"
@@ -352,7 +366,11 @@ const MessagePlacePage = () => {
                       />
                     </div>
                     <div id="recordAudio"></div>
-                    <div className={isPlaye ? "" : "d-none"}>
+                    <div
+                      className={
+                        isPlaye ? "d-flex justify-content-center" : "d-none"
+                      }
+                    >
                       <button
                         className="recmp"
                         id="removeSourceAttribute"

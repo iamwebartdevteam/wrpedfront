@@ -5580,6 +5580,10 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_copyright {
     padding: 0px 0px 50px 0px;
+    flex-direction: column;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
   }
   .ms_top_artist ul.more_option {
     max-width: 150px;
@@ -5984,6 +5988,9 @@ body.loaded.modal-open .ms_player_wrapper {
   .album_list_wrapper > ul > li {
     margin-bottom: 10px;
   }
+  .album_list_wrapper > ul > li:last-child {
+    width: 5% !important;
+  }
   ul.more_option:after {
     display: none;
   }
@@ -6001,7 +6008,7 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .album_list_wrapper > ul li.text-center {
     text-align: left !important;
-    width: 4%;
+    width: 4% !important;
   }
   .ms_logo_open img {
     width: 40%;
@@ -6196,10 +6203,11 @@ body.loaded.modal-open .ms_player_wrapper {
     justify-content: center;
   }
   .soundOr svg {
-    font-size: 23px !important;
+    font-size: 17px !important;
   }
   .headingC {
     font-size: 17px !important;
+    margin-top: 21px;
   }
   .countDowns p {
     width: 100% !important;
@@ -6320,6 +6328,10 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_admin_name:after {
     display: none;
   }
+
+  .typeLabel {
+    margin-top: 23px;
+  }
   span.hello-bella-hide {
     display: none;
   }
@@ -6437,8 +6449,13 @@ body.loaded.modal-open .ms_player_wrapper {
     padding: 0px 10px;
   }
   .ms_pro_form .ms_btn {
-    width: 130px;
+    /* width: 130px; */
     margin-left: 0px;
+  }
+  .recmp {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
   }
   .jp-gui.jp-interface.flex-wrap {
     left: 20%;
@@ -8775,7 +8792,7 @@ input[type="range"]:active::-moz-range-thumb {
 .cataTeb .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   line-height: 3em;
-  width: 8em;
+  width: 6em;
   height: 3em;
   margin: 0 10px;
   line-height: 40px;

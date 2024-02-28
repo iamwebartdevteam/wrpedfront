@@ -239,7 +239,9 @@ const CategoryDetails = () => {
                   {songColm === "2" || songColm === "3" ? (
                     ""
                   ) : (
-                    <li>Occasion </li>
+                    <>
+                      <li>Occasion</li>
+                    </>
                   )}
                   {songColm === "1" || songColm === "3" ? "" : <li>Genres</li>}
                   {songColm === "2" || songColm === "1" ? "" : <li>Moods</li>}
