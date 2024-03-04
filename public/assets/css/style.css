@@ -8923,6 +8923,7 @@ input[type="range"]:active::-moz-range-thumb {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 /* Style for custom select */
 .custom-select {

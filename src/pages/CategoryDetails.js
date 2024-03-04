@@ -19,6 +19,7 @@ const CategoryDetails = () => {
   const [songColm, setSongColm] = useState("");
 
   const [cataDrop, setCataDrop] = useState([]);
+  const [selecteData, setSelecteData] = useState("");
 
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
@@ -63,22 +64,18 @@ const CategoryDetails = () => {
     } catch (error) {}
   };
 
-  const subcataWaisSong = async (e) => {
+  const subcataWaisSong = async (datas, title) => {
     const header = localStorage.getItem("_tokenCode");
-    const data = e.target.value;
-    console.log("data", data);
+    const data = datas;
+    setSelecteData(title);
     try {
-      const reqObj = {
-        cataId: localStorage.getItem("subCataId"),
-        queris: data === "" ? "asscx" : e.target.value,
-      };
-      const response = await API.getsubCategory_song(e.target.value, header);
-      console.log("response", response);
+      const response = await API.getsubCategory_song(data, header);
       setSongData(response.data.data.music);
     } catch (error) {}
   };
 
   const get_categoryList = async (data, title) => {
+    setSelecteData("");
     const header = localStorage.getItem("_tokenCode");
     setCataGoriData(title);
     setSongColm(data);
@@ -222,15 +219,19 @@ const CategoryDetails = () => {
                   }
                 >
                   <div class="custom-select" tabindex="0">
-                    <div class="select-selected">Select an option</div>
+                    <div class="select-selected">
+                      {selecteData === "" ? "Select an option " : selecteData}
+                    </div>
                     <ul class="select-items ">
                       {cataDrop.map((item, index) => (
                         <>
-                          <li className="catagoriUl">
+                          <li
+                            key={index}
+                            className="catagoriUl"
+                            onClick={() => subcataWaisSong(item.id, item.name)}
+                          >
                             <span>{item.name}</span>
-                            <span className="countCata">
-                              ({item.category}){" "}
-                            </span>
+                            <span className="countCata">({item.count}) </span>
                           </li>
                         </>
                       ))}
