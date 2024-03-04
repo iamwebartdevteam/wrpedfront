@@ -84,6 +84,30 @@ export const getMain_subCategory = async (header) => {
   }
 };
 
+export const getsubCategory_drop = async (data, header) => {
+  try {
+    const url = c.SUBCATAGORIES + "/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const getsubCategory_song = async (data, header) => {
+  try {
+    const url = c.URL + "/subcategorywisesongs/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 export const subCategoryId = async (data, header) => {
   try {
     const url = c.SUBCATAGORIES + "/categorywise";

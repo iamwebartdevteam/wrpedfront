@@ -18,13 +18,15 @@ const CategoryDetails = () => {
   const [cataGoriData, setCataGoriData] = useState("");
   const [songColm, setSongColm] = useState("");
 
+  const [cataDrop, setCataDrop] = useState([]);
+
   const musiaChoose = (index, songid) => {
     setIsPlaying(true);
     setMusicIndex(songid);
     setCurrentTrack(songData[index]);
     setTrackIndex(index);
   };
-  console.log("songData", songData);
+
   // ? First time data get api
   const getVatagoriy_details = async () => {
     const header = localStorage.getItem("_tokenCode");
@@ -61,7 +63,7 @@ const CategoryDetails = () => {
     } catch (error) {}
   };
 
-  const searchAllSong = async (e) => {
+  const subcataWaisSong = async (e) => {
     const header = localStorage.getItem("_tokenCode");
     const data = e.target.value;
     console.log("data", data);
@@ -70,26 +72,29 @@ const CategoryDetails = () => {
         cataId: localStorage.getItem("subCataId"),
         queris: data === "" ? "asscx" : e.target.value,
       };
-      const response = await API.search_song_lists(reqObj, header);
+      const response = await API.getsubCategory_song(e.target.value, header);
       console.log("response", response);
-      setSongData(response.data.data);
+      setSongData(response.data.data.music);
     } catch (error) {}
   };
+
   const get_categoryList = async (data, title) => {
     const header = localStorage.getItem("_tokenCode");
     setCataGoriData(title);
     setSongColm(data);
     try {
       const response = await API.get_subCategory(data, header);
+      const dropResponse = await API.getsubCategory_drop(data, header);
+      console.log("dropResponse", dropResponse);
       console.log("get_categoryList", response);
       if (response.data.data.success === 1) {
+        setCataDrop(dropResponse.data.data);
         setSongData(response.data.data.music);
         setCurrentTrack(response.data.data.music[trackIndex]);
       } else {
       }
     } catch (error) {}
   };
-  console.log("currentTrack", currentTrack);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -211,16 +216,43 @@ const CategoryDetails = () => {
                     </button>
                   </li>
                 </ul>
-                <div className="srhbyx d-none">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search Songs"
-                    onChange={searchAllSong}
-                  />
-                  <div class="icnprty">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                <div
+                  className={
+                    songColm === "0" || songColm === "" ? "d-none" : "srhbyx"
+                  }
+                >
+                  <div class="custom-select" tabindex="0">
+                    <div class="select-selected">Select an option</div>
+                    <ul class="select-items ">
+                      {cataDrop.map((item, index) => (
+                        <>
+                          <li className="catagoriUl">
+                            <span>{item.name}</span>
+                            <span className="countCata">
+                              ({item.category}){" "}
+                            </span>
+                          </li>
+                        </>
+                      ))}
+                    </ul>
                   </div>
+
+                  <select
+                    class="form-control catagori d-none"
+                    onChange={subcataWaisSong}
+                  >
+                    <option> --- Select --- </option>
+                    {cataDrop.map((item, index) => (
+                      <>
+                        <option key={index} value={item.id}>
+                          <ul className="catagoriUl">
+                            <li>{item.name}</li>
+                            <li>{item.category}</li>
+                          </ul>
+                        </option>
+                      </>
+                    ))}
+                  </select>
                 </div>
               </div>
             </div>

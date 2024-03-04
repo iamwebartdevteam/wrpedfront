@@ -7375,8 +7375,13 @@ ul.accordion p {
 
 .srhbyx {
   position: relative;
+  width: 100%;
+  padding-left: 2em;
+  margin-top: 2em;
 }
-
+.srhbyx select {
+  width: 60%;
+}
 .srhbyx .form-control {
   height: 50px;
 }
@@ -8140,6 +8145,10 @@ input[type="range"]:active::-moz-range-thumb {
 .dassh {
   color: #cd8200;
   font-size: 25px;
+}
+.catagori option span {
+  margin-right: 10px;
+  display: inline-block;
 }
 .resend {
   color: #d5911c;
@@ -8906,4 +8915,53 @@ input[type="range"]:active::-moz-range-thumb {
 }
 .history_tab ul li {
   text-align: left;
+}
+.catagoriUl li {
+  display: inline-block;
+}
+.catagoriUl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Style for custom select */
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
+
+/* Style for selected option */
+.select-selected {
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for dropdown items */
+.select-items {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  padding: 8px 10px;
+  list-style-type: none;
+  margin: 0;
+  width: 100%;
+  z-index: 111;
+}
+
+/* Style for dropdown items on hover */
+.select-items li:hover {
+  background-color: #ddd;
+}
+
+/* Show dropdown items on hover */
+.custom-select:hover .select-items {
+  display: block;
+}
+.countCata {
+  color: #d58907;
 }
