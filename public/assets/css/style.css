@@ -7376,8 +7376,7 @@ ul.accordion p {
 .srhbyx {
   position: relative;
   width: 100%;
-  padding-left: 2em;
-  margin-top: 2em;
+  margin: 2em 0;
 }
 .srhbyx select {
   width: 60%;
@@ -7479,9 +7478,13 @@ ul.accordion p {
 /*------------page-header-------------*/
 
 .imgbanner {
-  background: url("../banner.jpg") no-repeat center;
+  background: url("") no-repeat center;
   background-size: cover;
-  padding: 20px 0;
+
+}
+.imgbanner img {
+  width: 100%;
+  object-fit: contain;
 }
 
 .imgbanner h1 {
@@ -8815,7 +8818,7 @@ input[type="range"]:active::-moz-range-thumb {
   line-height: 3em;
   width: 8em;
   height: 3em;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   line-height: 40px;
   cursor: pointer;
   border: 1px solid #cd8200;

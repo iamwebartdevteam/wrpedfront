@@ -146,11 +146,7 @@ const CategoryDetails = () => {
                 </div>
               </div>
               <div className="col-md-6 cataTeb">
-                <ul
-                  class="nav nav-pills mb-3 justify-content-center"
-                  id="pills-tab"
-                  role="tablist"
-                >
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                   <li class="nav-item" role="presentation">
                     <button
                       class="nav-link active"

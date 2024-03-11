@@ -434,7 +434,7 @@ const MessagePlacePage = () => {
                   className="ms_btn confrimorder"
                   to="/order-details"
                 >
-                  Confirm Song
+                  Confirm
                 </Link>
                 <span className="trashIcon" onClick={combineDelete}>
                   <i class="bi bi-trash3-fill"></i>
