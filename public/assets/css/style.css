@@ -4882,7 +4882,7 @@ body.loaded.modal-open .ms_player_wrapper {
     font-size: 13px;
   }
   .ms_header {
-    padding: 5px 30px;
+    padding: 5px 0px;
   }
   .ms_top_right .ms_top_lang {
     padding-right: 5px;
@@ -7480,8 +7480,11 @@ ul.accordion p {
 .imgbanner {
   background: url("") no-repeat center;
   background-size: cover;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .imgbanner img {
   width: 100%;
   object-fit: contain;

@@ -71,14 +71,14 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
               </li>
               <li>
                 <NavLink
-                  to="/testimonials"
+                  to="/services"
                   title="Testimonials"
                   onClick={sidebarOpen}
                 >
                   <span class="nav_icon">
                     <i class="bi bi-people"></i>
                   </span>
-                  <span class="nav_text">Testimonials</span>
+                  <span class="nav_text">Services</span>
                 </NavLink>
               </li>
               <li>

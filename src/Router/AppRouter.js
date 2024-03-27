@@ -39,7 +39,7 @@ const AppRouter = () => {
   const sidebarOpen = () => {
     setIsOpen(!isOpen);
   };
-  console.log("isLogin", isLogin);
+
   const singMusicPlay = (index) => {
     // setIsPlaying(true);
     // setCurrentTrack(tracks[index]);
@@ -106,7 +106,7 @@ const AppRouter = () => {
                     path="/wrapin-music"
                     element={<WrapInMusic trackData={trackData} />}
                   />
-                  <Route path="/testimonials" element={<Testimonialss />} />
+                  <Route path="/services" element={<Testimonialss />} />
                   <Route path="/contact-us" element={<Contact />} />
                   <Route path="/song-list" element={<CategoryDetails />} />
                   <Route path="/song-details" element={<MusicTemplete />} />

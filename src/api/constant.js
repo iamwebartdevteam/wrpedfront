@@ -3,9 +3,9 @@ import image from "../images/noImg.png";
 export const CURRENCY = "$";
 export const TIMEZONE = "America/Los_Angeles";
 export const NOIMG = image;
-export const IMG = "https://webarttechnology.co.in";
+export const IMG = "https://wrappedinmusic.com";
 // ? ====== BASE URL ======
-export const URL = "https://webarttechnology.co.in/frontend";
+export const URL = "https://wrappedinmusic.com/frontend";
 
 export const SIGNUP = `${URL}/users`;
 export const CATAGORIES = `${URL}/category`;

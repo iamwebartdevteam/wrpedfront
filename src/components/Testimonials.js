@@ -111,7 +111,7 @@ const Testimonials = () => {
         <div class="row">
           <div class="col-lg-12">
             <div class="ms_heading">
-              <h1>What They Say About Us</h1>
+              <h1>Our Services</h1>
             </div>
           </div>
           <div class="col-lg-4">
