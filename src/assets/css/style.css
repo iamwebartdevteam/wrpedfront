@@ -3049,15 +3049,7 @@ ul.play_active_song .ms_icon1.ms_active_icon {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
-.album_list_wrapper > ul:hover .play_hover {
-  opacity: 1;
-  top: 0;
-  visibility: visible;
-}
-.album_list_wrapper > ul:hover .play_no {
-  opacity: 0;
-  visibility: hidden;
-}
+
 ul.play_active_song > li > a {
   color: #cd8200;
 }

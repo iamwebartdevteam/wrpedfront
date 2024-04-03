@@ -3059,16 +3059,16 @@ ul.play_active_song .ms_icon1.ms_active_icon {
   background-color: transparent;
   cursor: pointer;
   background-position: -191px 0px;
-  position: absolute;
-  left: -8px;
-  top: -30px;
+  position: relative;
+  left: 0px;
+  top: 15px;
   transform: scale(0.7);
   -webkit-transform: scale(0.7);
   -moz-transform: scale(0.7);
   -ms-transform: scale(0.7);
   -o-transform: scale(0.7);
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -3082,7 +3082,7 @@ ul.play_active_song .ms_icon1.ms_active_icon {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
-.album_list_wrapper > ul:hover .play_hover {
+/* .album_list_wrapper > ul:hover .play_hover {
   opacity: 1;
   top: 0;
   visibility: visible;
@@ -3090,7 +3090,7 @@ ul.play_active_song .ms_icon1.ms_active_icon {
 .album_list_wrapper > ul:hover .play_no {
   opacity: 0;
   visibility: hidden;
-}
+} */
 ul.play_active_song > li > a {
   color: #cd8200;
 }
@@ -4776,6 +4776,17 @@ body.loaded.modal-open .ms_player_wrapper {
   display: none;
 }
 /*====Media Css Start====*/
+@media (max-width: 5000px) {
+  .padder_top80 {
+    padding-top: 20em !important;
+  }
+}
+@media (max-width: 3000px) {
+  .padder_top80 {
+    padding-top: 14em !important;
+  }
+}
+
 @media (max-width: 1825px) {
   .ms_top_trend {
     padding-left: 20px;
@@ -5079,6 +5090,7 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_content_wrapper {
     margin-left: 140px;
     margin-right: 60px;
+    padding-top: 7em !important;
   }
   .ms_weekly_wrapper .col-lg-4.col-md-12 {
     padding-right: 20px;
@@ -5897,6 +5909,7 @@ body.loaded.modal-open .ms_player_wrapper {
     top: 10px;
   }
 }
+
 @media (max-width: 900px) {
   .jp-progress-container.flex-item {
     max-width: 21%;

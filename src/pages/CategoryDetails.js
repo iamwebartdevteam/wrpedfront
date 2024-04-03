@@ -146,7 +146,11 @@ const CategoryDetails = () => {
                 </div>
               </div>
               <div className="col-md-6 cataTeb">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <ul
+                  class="nav nav-pills mb-3 justify-content-end"
+                  id="pills-tab"
+                  role="tablist"
+                >
                   <li class="nav-item" role="presentation">
                     <button
                       class="nav-link active"
@@ -263,8 +267,8 @@ const CategoryDetails = () => {
                 }
               >
                 <ul class="album_list_name">
-                  <li className="text-center">ID</li>
-                  <li>Song Title</li>
+                  <li style={{ width: "8%" }}>Select</li>
+                  <li style={{ width: "36%" }}>Song Title</li>
                   {songColm === "2" || songColm === "3" ? (
                     ""
                   ) : (
@@ -276,7 +280,6 @@ const CategoryDetails = () => {
                   {songColm === "2" || songColm === "1" ? "" : <li>Moods</li>}
 
                   <li>Amount </li>
-                  <li>Select</li>
                 </ul>
                 {songData === "" ||
                 songData.length === 0 ||
@@ -285,34 +288,51 @@ const CategoryDetails = () => {
                 ) : (
                   songData.map((item, index) => (
                     <ul>
-                      <li
-                        className={
-                          musicIndex === item.id
-                            ? "songActive text-center"
-                            : "calll text-center"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        <Link to="javascript:void(0)">
-                          <span class="play_no">
-                            {musicIndex === item.id ? "" : index + 1}
-                          </span>
-                          {musicIndex === item.id ? (
-                            <img
-                              className="playIcon"
-                              src="https://m.media-amazon.com/images/G/01/digital/music/player/web/EQ_accent.gif"
-                            />
-                          ) : (
-                            <span class="play_hover"></span>
-                          )}
+                      <li style={{ width: "8%" }}>
+                        <Link
+                          onClick={() =>
+                            add_music_user(
+                              item.id,
+                              item.amount,
+                              item.name,
+                              item.description,
+                              item.image
+                            )
+                          }
+                          to="/song-details"
+                          class="cart_btn"
+                          state={{ songId: item.id }}
+                        >
+                          <i class="fa fa-eye" aria-hidden="true"></i>
                         </Link>
                       </li>
+
                       <li
+                        style={{ width: "36%" }}
                         className={
                           musicIndex === item.id ? "songActive" : "calll"
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
+                        <span
+                          className={
+                            musicIndex === item.id
+                              ? "songActive text-center"
+                              : "calll text-center"
+                          }
+                          onClick={() => musiaChoose(index, item.id)}
+                        >
+                          <Link to="javascript:void(0)">
+                            {musicIndex === item.id ? (
+                              <img
+                                className="playIcon"
+                                src="https://m.media-amazon.com/images/G/01/digital/music/player/web/EQ_accent.gif"
+                              />
+                            ) : (
+                              <span class="play_hover"></span>
+                            )}
+                          </Link>
+                        </span>
                         <Link to="javascript:void(0)">{item.name}</Link>
                       </li>
                       {songColm === "2" || songColm === "3" ? (
@@ -366,25 +386,6 @@ const CategoryDetails = () => {
                       >
                         <Link to="javascript:void(0)">
                           $ {item.amount} : 00
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link
-                          onClick={() =>
-                            add_music_user(
-                              item.id,
-                              item.amount,
-                              item.name,
-                              item.description,
-                              item.image
-                            )
-                          }
-                          to="/song-details"
-                          class="cart_btn"
-                          state={{ songId: item.id }}
-                        >
-                          <i class="fa fa-eye" aria-hidden="true"></i>
                         </Link>
                       </li>
                     </ul>
