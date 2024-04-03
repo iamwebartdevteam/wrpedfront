@@ -8783,7 +8783,7 @@ input[type="range"]:active::-moz-range-thumb {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  display: flex;
+  display: flex !important;
   justify-content: center;
 }
 .trash i {

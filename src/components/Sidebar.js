@@ -102,7 +102,9 @@ const Sidebar = ({ isOpen, sidebarOpen, isLogin, cartItem, trackData }) => {
                   <span class="nav_icon">
                     <i class="bi bi-person-circle"></i>
                   </span>
-                  <span class="nav_text">Login</span>
+                  <span class="nav_text">
+                    {isLogin ? "My Account" : "Login"}{" "}
+                  </span>
                 </NavLink>
               </li>
               <li>

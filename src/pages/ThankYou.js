@@ -114,7 +114,7 @@ const ThankYou = () => {
                   </div>
                   <div class="col-md-12" style={{ marginTop: "5em" }}>
                     <div class="btnprt text-center mt-5">
-                      <Link to="/songs-list" class="ms_btn">
+                      <Link to="/song-list" class="ms_btn">
                         Back to Song
                       </Link>
                     </div>

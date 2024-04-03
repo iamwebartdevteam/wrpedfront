@@ -229,11 +229,12 @@ const MyAccount = ({ setIsLogin }) => {
                               <li>ID</li>
                               <li>Song Title</li>
                               <li>Duration</li>
-                              {/* <li>Download</li> */}
+
                               <li>Share</li>
+                              <li>Status</li>
                             </ul>
                             {orderData.map((item, index) => (
-                              <ul>
+                              <ul style={{ marginBottom: 20 }}>
                                 <li>
                                   <a href="#">
                                     <span class="play_now">{index + 1}</span>
@@ -254,13 +255,35 @@ const MyAccount = ({ setIsLogin }) => {
                                     <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                   </span>
                                 </li> */}
+                                {item.is_paid ? (
+                                  <>
+                                    <li>
+                                      <span
+                                        onClick={() => copyfile(item.combined)}
+                                        class="cart_btn"
+                                      >
+                                        <i class="bi bi-clipboard-fill"></i>
+                                      </span>
+                                    </li>
+                                  </>
+                                ) : (
+                                  <li> N/A</li>
+                                )}
+
                                 <li>
-                                  <span
-                                    onClick={() => copyfile(item.combined)}
-                                    class="cart_btn"
-                                  >
-                                    <i class="bi bi-clipboard-fill"></i>
-                                  </span>
+                                  {item.is_paid ? (
+                                    <button
+                                      className="ms_btn"
+                                      style={{
+                                        background: "green",
+                                        color: "white",
+                                      }}
+                                    >
+                                      Success
+                                    </button>
+                                  ) : (
+                                    <button className="ms_btn">Pending</button>
+                                  )}
                                 </li>
                               </ul>
                             ))}
