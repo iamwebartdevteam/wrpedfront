@@ -5,8 +5,6 @@ import { IMG } from "../api/constant";
 import { MESSAGE } from "../schemas/Validation";
 import cartimg from "../assets/blank.png";
 const AddToCart = ({ cartItem, totalAmount, rootApiData }) => {
-  console.log("cartItem", cartItem);
-
   const multipaleOrder = async () => {
     const header = localStorage.getItem("_tokenCode");
     const user = localStorage.getItem("__userId");
@@ -61,7 +59,7 @@ const AddToCart = ({ cartItem, totalAmount, rootApiData }) => {
   }, []);
   return (
     <>
-      {cartItem.length === 0 ? (
+      {cartItem === undefined ? (
         <>
           <div className="cartiMGshop">
             <img src={cartimg} />

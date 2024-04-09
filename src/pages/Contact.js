@@ -40,7 +40,7 @@ const Contact = () => {
   return (
     <>
       <div class="ms_profile_wrapper">
-        <div class="ms_profile_box">
+        <div class="ms_profile_box contactUs">
           <h1>Send Us a Message</h1>
           <div class="ms_pro_form">
             <div class="form-group">

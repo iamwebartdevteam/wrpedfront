@@ -835,6 +835,7 @@ ul.ms_lang_box:after {
 /*====Banner Css Start====*/
 .ms-banner {
   padding: 0px 0px 40px;
+  margin-bottom: 50rem;
 }
 /* .ms-banner {
   margin-top: 4em;
@@ -1565,9 +1566,8 @@ ul.more_option li a:hover .opt_icon .icon_share {
 }
 /*====Top Genres Css Start====*/
 .ms_genres_wrapper {
-  margin: 100rem 0px 0px 0px;
+  margin: 50rem 0px 70px !important;
 }
-
 .ms_genres_box {
   margin-bottom: 30px !important;
   position: relative;
@@ -1667,10 +1667,13 @@ span.ovrly_text2 {
 }
 /*====Footer Css Start====*/
 .ms_footer_wrapper {
-  background-image: url(../images/footer_bg.png);
-  background-size: cover;
-  position: relative;
+  /* background-image: url(../images/footer_bg.png);
+  background-size: cover; */
+  background: #15192a;
   z-index: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 .ms_footer_wrapper:after {
   position: absolute;
@@ -3863,7 +3866,8 @@ button.save_btn:hover {
 .ms_profile_wrapper,
 .ms_account_wrapper {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   padding-left: 80px;
 }
 .ms_account_wrapper .container {
@@ -5315,6 +5319,12 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_top_artist {
     padding: 0px 10px;
   }
+  .cataTeb .nav-pills .nav-link {
+    line-height: 3em;
+    width: 6em !important;
+    margin: 0 7px 0 0 !important;
+    font-size: 13px !important;
+  }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   .ms_top_artist .col-lg-2.col-md-6 {
@@ -5322,8 +5332,14 @@ body.loaded.modal-open .ms_player_wrapper {
     -ms-flex: 33.33%;
     max-width: 33.33%;
   }
+  .ms_banner_video {
+    margin-top: 40px !important;
+  }
 }
 @media (max-width: 1024px) {
+  .ms_banner_video {
+    margin-top: 50px !important;
+  }
   .ms_main_wrapper.ms_profile .ms_top_trend {
     display: none;
   }
@@ -5589,6 +5605,14 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_footer_wrapper {
     padding: 0px 27px;
+    position: static;
+  }
+  .ms_footer_inner .row {
+    justify-content: center;
+  }
+  .flogo {
+    width: 40px;
+    margin-top: 0.52em;
   }
   .ms_copyright {
     padding: 0px 0px 50px 0px;
@@ -5614,6 +5638,10 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_profile_box {
     margin-bottom: 0;
+    padding: 25px 30px;
+  }
+  .contactUs {
+    margin-top: 2em;
   }
   .ms_profile_wrapper,
   .ms_account_wrapper {
@@ -5660,7 +5688,7 @@ body.loaded.modal-open .ms_player_wrapper {
     padding-top: 40px;
   }
   .ms_footer_inner {
-    padding: 0px 30px 0px 8px !important;
+    padding: 0px 0 0px 8px !important;
   }
   .ms_profile .ms_top_right {
     text-align: center;
@@ -5908,6 +5936,9 @@ body.loaded.modal-open .ms_player_wrapper {
     position: relative;
     top: 10px;
   }
+  .ms_genre {
+    margin-top: 50rem !important;
+  }
 }
 
 @media (max-width: 900px) {
@@ -5957,14 +5988,12 @@ body.loaded.modal-open .ms_player_wrapper {
     margin-top: 3em !important;
   }
   .ms_genres_wrapper .nav {
-    flex-wrap: nowrap;
-    width: 100%;
-    overflow-x: scroll;
     margin-bottom: 1em !important;
+    justify-content: center !important;
   }
   .cataTeb .nav-pills .nav-link {
-    width: 5em !important;
-    height: 2em !important;
+    width: 6em !important;
+    height: 3em !important;
     margin: 0 7px !important;
     line-height: 22px !important;
   }
@@ -5973,6 +6002,19 @@ body.loaded.modal-open .ms_player_wrapper {
   }
 }
 @media (max-width: 767px) {
+  .cartpage {
+    margin-top: 50px;
+  }
+  .abotHead {
+    margin: 1em 0 0.5em !important;
+  }
+  .ms_heading h1 {
+    font-size: 22px !important;
+  }
+  .aboutWrap {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
   .blog_single_content .ms_blog_title {
     font-size: 19px;
   }
@@ -6078,7 +6120,7 @@ body.loaded.modal-open .ms_player_wrapper {
     margin-right: 0px;
   }
   .ms_play_song {
-    padding: 14px 0px 10px 15px;
+    padding: 20px 0px 10px 6px;
     height: 70px;
   }
   .jp_queue_wrapper {
@@ -6169,9 +6211,9 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_copyright {
     padding: 0px 0px 20px 0px;
   }
-  .ms_footer_wrapper {
+  /* .ms_footer_wrapper {
     margin-bottom: 70px;
-  }
+  } */
   .ms_footer_logo {
     padding-left: 0;
     padding-top: 50px;
@@ -6204,7 +6246,7 @@ body.loaded.modal-open .ms_player_wrapper {
     display: none;
   }
   .ms_play_song {
-    width: 80px;
+    width: 55px;
   }
   span.play-left-arrow {
     display: none;
@@ -6227,15 +6269,20 @@ body.loaded.modal-open .ms_player_wrapper {
     font-size: 12px;
   }
   .volume {
-    right: -27px !important;
-    display: block !important;
+    right: -68px !important;
+    display: inline-block !important;
   }
   .soundOr {
-    width: 40px !important;
-    height: 40px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
   .ms_main_wrapper.ms_profile .ms_header {
     padding: 10px 30px 10px;
+  }
+  .jp-interface .jp-controls button,
+  .jp-interface .jp-toggles button,
+  .jp-interface .jp-volume-controls button {
+    width: 40px;
   }
 }
 @media (max-width: 767px) and (orientation: landscape) {
@@ -6341,6 +6388,9 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_admin_name:after {
     display: none;
   }
+  .ms-banner {
+    min-height: 624px;
+  }
 
   .typeLabel {
     margin-top: 23px;
@@ -6427,6 +6477,15 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_nav_wrapper {
     top: 120px;
   }
+  .imgbanner img:first-child,
+  .imgbanner img:last-child {
+    display: none;
+  }
+  .imgbanner {
+    justify-content: center;
+    align-items: center;
+    padding: 22px 0;
+  }
 }
 @media (max-width: 600px) {
   .ms_register_popup .modal-content {
@@ -6506,8 +6565,22 @@ body.loaded.modal-open .ms_player_wrapper {
     padding: 0px 60px 0px 3px;
     font-size: 7px;
   }
+  .ms_copyright ul li a {
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  .volume {
+    top: 19px !important;
+  }
 }
 @media (max-width: 480px) {
+  .ms_genres_wrapper .nav {
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: 1em !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap;
+  }
   .ms_profile .ms_top_right {
     width: 100%;
     padding-top: 10px;
@@ -6691,7 +6764,7 @@ body.loaded.modal-open .ms_player_wrapper {
     right: 60px;
   }
   .jp-type-playlist {
-    right: 16px;
+    right: 3px;
   }
   .ms_pro_form .ms_btn {
     margin-bottom: 10px;
@@ -7029,9 +7102,7 @@ body.loaded.modal-open .ms_player_wrapper {
   .play-left-arrow {
     display: none;
   }
-  .ms_play_song {
-    width: 80px;
-  }
+
   .jp-gui.jp-interface.flex-wrap {
     left: 32%;
   }
@@ -7208,7 +7279,7 @@ body.loaded.modal-open .ms_player_wrapper {
 /*----------Sohom's Updated CSS-----------*/
 
 .mbxy {
-  margin: 50px 0;
+  margin: 0 0 100px;
 }
 
 .ms_banner_video {
@@ -7703,6 +7774,7 @@ ul.accordion p {
 
 .maindashboardbdy .album_list_wrapper > ul > li {
   width: 19%;
+  padding-top: 10px;
 }
 
 .album_inner_list {
@@ -8636,6 +8708,7 @@ input[type="range"]:active::-moz-range-thumb {
 }
 .ms_genre {
   margin-top: 30rem;
+  margin-bottom: 30rem;
 }
 .remainTime {
   font-size: 25px;

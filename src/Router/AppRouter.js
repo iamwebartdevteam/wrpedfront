@@ -164,7 +164,8 @@ const AppRouter = () => {
                     path="/wrapin-music"
                     element={<WrapInMusic trackData={trackData} />}
                   />
-                  <Route path="/testimonials" element={<Testimonialss />} />
+                  <Route path="/services" element={<Testimonialss />} />
+                  {/* <Route path="/testimonials" element={<Testimonialss />} /> */}
                   <Route path="/contact-us" element={<Contact />} />
 
                   <Route path="/song-list" element={<CategoryDetails />} />
@@ -184,6 +185,16 @@ const AppRouter = () => {
                   <Route
                     path="/my-account"
                     element={<MyAccount setIsLogin={setIsLogin} />}
+                  />
+                  <Route
+                    path="/cart"
+                    element={
+                      <Cart
+                        cartItem={cartItem}
+                        rootApiData={rootApiData}
+                        totalAmount={totalAmount}
+                      />
+                    }
                   />
                   <Route
                     path="/payment"

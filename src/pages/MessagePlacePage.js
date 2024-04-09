@@ -382,36 +382,19 @@ const MessagePlacePage = () => {
                   </div>
                 </div>
               </div>
-
-              <div class="pro-form-btn text-center marger_top15">
-                {loader ? (
-                  <button class="ms_btn process">Processing...</button>
-                ) : (
-                  <button class="ms_btn" onClick={songProcess}>
-                    Process Start
-                  </button>
-                )}
-
-                {/* {mainSong === false ? (
-                  <>
-                    <div className="align-items-center d-flex justify-content-center marginTopt mt-5">
-                      <audio src={IMG + combineData.combined} controls></audio>
-                      <span className="trashIcon" onClick={combineDelete}>
-                        <i class="bi bi-trash3-fill"></i>
-                      </span>
-                    </div>
-                    <Link
-                      state={{ mainId: combineData.id }}
-                      className="ms_btn confrimorder"
-                      to="/order-details"
-                    >
-                      Confirm Song
-                    </Link>
-                  </>
-                ) : (
-                  <></>
-                )} */}
-              </div>
+              {voiceMessage || voiceMessageMiddil || voiceMessageEnd ? (
+                <div class="pro-form-btn text-center marger_top15">
+                  {loader ? (
+                    <button class="ms_btn process">Processing...</button>
+                  ) : (
+                    <button class="ms_btn" onClick={songProcess}>
+                      Process Start
+                    </button>
+                  )}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

@@ -98,6 +98,24 @@ const MyAccount = ({ setIsLogin }) => {
     navigator.clipboard.writeText(IMG + data);
   };
 
+  const handleDownloadClick = (downloadLink, name) => {
+    fetch(downloadLink)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create a temporary anchor element
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        let formattedName = name.replace(/^\s+|\s+$/g, "").replace(/\s+/g, "-");
+        formattedName += ".mp3";
+        link.setAttribute("download", formattedName);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      })
+      .catch((error) => console.error("Error downloading file:", error));
+  };
+
   useEffect(() => {
     userDataGetById();
   }, []);
@@ -226,7 +244,7 @@ const MyAccount = ({ setIsLogin }) => {
                         <div class="album_inner_list">
                           <div class="album_list_wrapper history_tab">
                             <ul class="album_list_name">
-                              <li>ID</li>
+                              <li></li>
                               <li>Song Title</li>
                               <li>Duration</li>
 
@@ -235,11 +253,15 @@ const MyAccount = ({ setIsLogin }) => {
                             </ul>
                             {orderData.map((item, index) => (
                               <ul style={{ marginBottom: 20 }}>
-                                <li>
-                                  <a href="#">
-                                    <span class="play_now">{index + 1}</span>
-                                  </a>
-                                </li>
+                                {item.is_paid ? (
+                                  <li>
+                                    <Link to="/song-list">
+                                      <span class="play_hover"></span>
+                                    </Link>
+                                  </li>
+                                ) : (
+                                  <li>N/A</li>
+                                )}
                                 <li>
                                   <a href="#">{item.songname}</a>
                                 </li>
@@ -272,17 +294,32 @@ const MyAccount = ({ setIsLogin }) => {
 
                                 <li>
                                   {item.is_paid ? (
-                                    <button
+                                    <a
+                                      href="#!"
                                       className="ms_btn"
                                       style={{
                                         background: "green",
                                         color: "white",
                                       }}
+                                      onClick={(e) =>
+                                        handleDownloadClick(
+                                          IMG + item.combined,
+                                          item.songname
+                                        )
+                                      }
                                     >
-                                      Success
-                                    </button>
+                                      Download
+                                    </a>
                                   ) : (
-                                    <button className="ms_btn">Pending</button>
+                                    <button
+                                      style={{
+                                        background: "red",
+                                        color: "white",
+                                      }}
+                                      className="ms_btn"
+                                    >
+                                      Failed
+                                    </button>
                                   )}
                                 </li>
                               </ul>
