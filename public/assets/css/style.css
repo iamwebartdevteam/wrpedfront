@@ -8953,7 +8953,7 @@ input[type="range"]:active::-moz-range-thumb {
   /*left: 28%;
   */
   position: relative;
-  bottom: 4em;
+  bottom: 6em;
 }
 .rhap_progress-bar-show-download {
   background-color: #fff !important;
@@ -8989,7 +8989,7 @@ input[type="range"]:active::-moz-range-thumb {
   width: 100%;
   height: 100%;
   position: relative;
-  bottom: 4em;
+  bottom: 6em;
   left: -2px;
   display: flex;
   align-items: center;

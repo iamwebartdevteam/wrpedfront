@@ -33,7 +33,6 @@ const ThankYou = () => {
           navaget("/");
           //MESSAGE(response.data.msg);
         }
-        console.log("response", response);
       } catch (error) {}
     };
     paymentCheck();
