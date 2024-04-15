@@ -4,7 +4,6 @@ import InnerBanner from "../components/InnerBanner";
 import { Link } from "react-router-dom";
 import { IMG } from "../api/constant";
 const WrapInMusic = ({ trackData }) => {
-  console.log("trackData", trackData);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

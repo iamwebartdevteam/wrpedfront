@@ -12,6 +12,7 @@ const CategoryDetails = () => {
   const [musicIndex, setMusicIndex] = useState("");
   const [songData, setSongData] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(songData[trackIndex]);
 
@@ -323,7 +324,7 @@ const CategoryDetails = () => {
                           onClick={() => musiaChoose(index, item.id)}
                         >
                           <Link to="javascript:void(0)">
-                            {musicIndex === item.id ? (
+                            {isPlaying || musicIndex === item.id ? (
                               <img
                                 className="playIcon"
                                 src="https://m.media-amazon.com/images/G/01/digital/music/player/web/EQ_accent.gif"

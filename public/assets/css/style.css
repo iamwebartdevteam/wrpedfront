@@ -4780,14 +4780,25 @@ body.loaded.modal-open .ms_player_wrapper {
   display: none;
 }
 /*====Media Css Start====*/
+@media (max-width: 6000px) {
+  .aboutVideo {
+    height: auto !important;
+  }
+}
 @media (max-width: 5000px) {
   .padder_top80 {
     padding-top: 20em !important;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
 }
 @media (max-width: 3000px) {
   .padder_top80 {
     padding-top: 14em !important;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
 }
 
@@ -4798,6 +4809,9 @@ body.loaded.modal-open .ms_player_wrapper {
   .ms_profile .ms_top_btn {
     width: 67.3%;
   }
+  .aboutVideo {
+    height: auto !important;
+  }
 }
 @media (max-width: 1800px) {
   .jp-volume-controls.flex-item {
@@ -4805,6 +4819,9 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .jp-progress-container.flex-item {
     max-width: 600px;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   body {
     font-size: 15px;
@@ -4852,6 +4869,9 @@ body.loaded.modal-open .ms_player_wrapper {
     font-size: 11px;
     line-height: 24px;
   }
+  .aboutVideo {
+    height: auto !important;
+  }
 }
 @media (max-width: 1700px) {
   .ms_top_search {
@@ -4859,6 +4879,9 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_top_trend {
     padding-left: 35px;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   .jp-progress-container.flex-item {
     max-width: 50%;
@@ -4886,6 +4909,9 @@ body.loaded.modal-open .ms_player_wrapper {
   }
   .ms_top_right .ms_top_lang:after {
     display: none;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   span.ovrly_text1 a {
     font-size: 20px;
@@ -4976,6 +5002,9 @@ body.loaded.modal-open .ms_player_wrapper {
 @media (max-width: 1400px) {
   .ms_genres_wrapper.ms_genres_single {
     margin-top: 50px;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   .ms_top_artist ul.more_option {
     padding: 10px;
@@ -5121,6 +5150,9 @@ body.loaded.modal-open .ms_player_wrapper {
 @media (max-width: 1200px) {
   .ms_main_wrapper.ms_profile .ms_top_trend {
     width: 25%;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   .ms_content_wrapper {
     margin-right: 50px;
@@ -5332,6 +5364,9 @@ body.loaded.modal-open .ms_player_wrapper {
     -ms-flex: 33.33%;
     max-width: 33.33%;
   }
+  .aboutVideo {
+    height: auto !important;
+  }
   .ms_banner_video {
     margin-top: 40px !important;
   }
@@ -5339,6 +5374,9 @@ body.loaded.modal-open .ms_player_wrapper {
 @media (max-width: 1024px) {
   .ms_banner_video {
     margin-top: 50px !important;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   .ms_main_wrapper.ms_profile .ms_top_trend {
     display: none;
@@ -5439,6 +5477,9 @@ body.loaded.modal-open .ms_player_wrapper {
   ul.more_option {
     max-width: 98px;
     padding: 10px 0px 10px 12px;
+  }
+  .aboutVideo {
+    height: auto !important;
   }
   .jp-playlist ul.more_option {
     top: 90%;
@@ -7292,7 +7333,7 @@ body.loaded.modal-open .ms_player_wrapper {
 .ms_banner_video video {
   width: 100%;
   object-fit: cover;
-  height: 500px;
+  /* height: 500px; */
 }
 
 .ms_nav_wrapper ul li a i {
