@@ -97,10 +97,9 @@ const MusicTemplete = () => {
             <div class="album_inner_list">
               <div class="album_list_wrapper mobileList">
                 <ul class="album_list_name">
-                  <li>ID</li>
-                  <li>Sample Type</li>
-                  <li>Amount</li>
-                  <li>Action</li>
+                  <li style={{ width: "20%" }}>Select</li>
+                  <li style={{ width: "60%" }}>Sample Type</li>
+                  <li style={{ width: "10%" }}>Amount</li>
                 </ul>
                 {songData.length === 0 ? (
                   <h1 className="noRechor">No Data Found</h1>
@@ -108,50 +107,12 @@ const MusicTemplete = () => {
                   songData.map((item, index) => (
                     <ul>
                       <li
+                        style={{ width: "20%" }}
                         className={
                           musicIndex === item.id ? "songActive" : "calll"
                         }
                         onClick={() => musiaChoose(index, item.id)}
                       >
-                        <Link to="javascript:void(0)">
-                          <span class="play_no">
-                            {musicIndex === item.id ? "" : index + 1}
-                          </span>
-                          {musicIndex === item.id ? (
-                            <img
-                              className="playIcon"
-                              src="https://m.media-amazon.com/images/G/01/digital/music/player/web/EQ_accent.gif"
-                            />
-                          ) : (
-                            <span class="play_hover"></span>
-                          )}
-                        </Link>
-                      </li>
-                      <li
-                        className={
-                          musicIndex === item.id ? "songActive" : "calll"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        <Link to="javascript:void(0)">{item.name}</Link>
-                      </li>
-                      <li
-                        className={
-                          musicIndex === item.id ? "songActive" : "calll"
-                        }
-                        onClick={() => musiaChoose(index, item.id)}
-                      >
-                        {item.amount === "" ? (
-                          "Free"
-                        ) : (
-                          <>
-                            <Link to="javascript:void(0)">
-                              $ {item.amount}.00
-                            </Link>
-                          </>
-                        )}
-                      </li>
-                      <li>
                         <Link
                           onClick={() =>
                             add_music_user(
@@ -166,6 +127,42 @@ const MusicTemplete = () => {
                         >
                           <i class="fa fa-plus" aria-hidden="true"></i>
                         </Link>
+                      </li>
+                      <li
+                        style={{ width: "60%" }}
+                        className={
+                          musicIndex === item.id ? "songActive" : "calll"
+                        }
+                        onClick={() => musiaChoose(index, item.id)}
+                      >
+                        <Link to="javascript:void(0)">
+                          {musicIndex === item.id ? (
+                            <img
+                              className="playIcon"
+                              src="https://m.media-amazon.com/images/G/01/digital/music/player/web/EQ_accent.gif"
+                            />
+                          ) : (
+                            <span class="play_hover"></span>
+                          )}
+                        </Link>
+                        <Link to="javascript:void(0)">{item.name}</Link>
+                      </li>
+                      <li
+                        style={{ width: "10%" }}
+                        className={
+                          musicIndex === item.id ? "songActive" : "calll"
+                        }
+                        onClick={() => musiaChoose(index, item.id)}
+                      >
+                        {item.amount === "" ? (
+                          "Free"
+                        ) : (
+                          <>
+                            <Link to="javascript:void(0)">
+                              $ {item.amount}.00
+                            </Link>
+                          </>
+                        )}
                       </li>
                     </ul>
                   ))
