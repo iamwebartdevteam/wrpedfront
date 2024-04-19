@@ -9100,3 +9100,6 @@ input[type="range"]:active::-moz-range-thumb {
 .countCata {
   color: #d58907;
 }
+.historyPlay .rhap_container {
+  position: inherit;
+}

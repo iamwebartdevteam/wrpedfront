@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import DownloadMusic from "./DownloadMusic";
 import { IMG } from "../api/constant";
 import DownloadLink from "react-download-link";
+import AudioPlayer from "react-h5-audio-player";
 import { MESSAGE } from "../schemas/Validation";
 const initialValues = {
   name: "",
@@ -32,6 +33,16 @@ const MyAccount = ({ setIsLogin }) => {
   const [countryData, setCountryData] = useState("");
   const [stateData, setStateData] = useState("");
   const [cityData, setCityData] = useState("");
+  const [histoySong, setHistoySong] = useState("");
+  const [currentPlay, setCurrentPlay] = useState("");
+  const [isPlaysong, setIsPlaysong] = useState("");
+
+  const controlData = (data) => {
+    console.log("data", data);
+    setIsPlaysong(data);
+    if (data.type === "play") {
+    }
+  };
 
   const logout = () => {
     localStorage.removeItem("_tokenCode");
@@ -115,7 +126,11 @@ const MyAccount = ({ setIsLogin }) => {
       })
       .catch((error) => console.error("Error downloading file:", error));
   };
-
+  const historyMusicButton = (data, id) => {
+    setHistoySong(data);
+    console.log("idddddd", id);
+    setCurrentPlay(id);
+  };
   useEffect(() => {
     userDataGetById();
   }, []);
@@ -244,19 +259,34 @@ const MyAccount = ({ setIsLogin }) => {
                         <div class="album_inner_list">
                           <div class="album_list_wrapper history_tab">
                             <ul class="album_list_name">
-                              <li></li>
+                              <li>Action</li>
                               <li>Song Title</li>
                               <li>Duration</li>
 
-                              <li>Share</li>
+                              <li>Sharable Link</li>
                               <li>Status</li>
                             </ul>
                             {orderData.map((item, index) => (
                               <ul style={{ marginBottom: 20 }}>
                                 {item.is_paid ? (
                                   <li>
-                                    <Link to="/song-list">
-                                      <span class="play_hover"></span>
+                                    <Link
+                                      to="#"
+                                      onClick={() =>
+                                        historyMusicButton(
+                                          item.combined,
+                                          item.id
+                                        )
+                                      }
+                                    >
+                                      {currentPlay === item.id ? (
+                                        <img
+                                          className="playIcon"
+                                          src="https://m.media-amazon.com/images/G/01/digital/music/player/web/EQ_accent.gif"
+                                        />
+                                      ) : (
+                                        <span class="play_hover"></span>
+                                      )}
                                     </Link>
                                   </li>
                                 ) : (
@@ -300,6 +330,8 @@ const MyAccount = ({ setIsLogin }) => {
                                       style={{
                                         background: "green",
                                         color: "white",
+                                        padding: " 0 15px",
+                                        fontSize: "25px",
                                       }}
                                       onClick={(e) =>
                                         handleDownloadClick(
@@ -308,22 +340,36 @@ const MyAccount = ({ setIsLogin }) => {
                                         )
                                       }
                                     >
-                                      Download
+                                      <i class="bi bi-download"></i>
                                     </a>
                                   ) : (
                                     <button
                                       style={{
                                         background: "red",
                                         color: "white",
+                                        padding: " 0 15px",
+                                        fontSize: "25px",
                                       }}
                                       className="ms_btn"
                                     >
-                                      Failed
+                                      <i class="bi bi-stopwatch"></i>
                                     </button>
                                   )}
                                 </li>
                               </ul>
                             ))}
+                          </div>
+                        </div>
+                        <div className={histoySong ? "row" : "d-none"}>
+                          <div className="col-md-12 historyPlay">
+                            <AudioPlayer
+                              autoPlay={false}
+                              src={IMG + histoySong}
+                              onPlay={(e) => controlData(e)}
+                              onPause={(e) => controlData(e)}
+
+                              // other props here
+                            />
                           </div>
                         </div>
                       </div>

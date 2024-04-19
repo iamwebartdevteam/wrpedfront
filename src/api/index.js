@@ -267,6 +267,7 @@ export const addToCart = async (data, header) => {
 export const getCartList = async (data, header) => {
   try {
     const url = c.GETCART + "/" + data;
+    console.log("url", url);
     const res = await axios.get(url, data, {
       headers: JSON.parse(header),
     });
